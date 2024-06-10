@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #E7F2F8; /* Background color for the rest of the page */
+    position: relative; /* Ensure the ::before pseudo-element is positioned relative to the body */
+}
+
+.container {
+    text-align: center;
+    color: #333;
+    padding-top: 150px; /* Adjust this value to create space below the background image */
+    z-index: 1; /* Ensure the container content is above the background image */
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #5cb85c;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Add this rule to handle the background image at the top */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px; /* Adjust this height as needed */
+    background-image: url('images/land.jpg'); /* Adjust the path as per your directory structure */
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensure it stays behind other content */
+}
