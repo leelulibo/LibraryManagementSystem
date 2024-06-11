@@ -9,7 +9,7 @@ public class Server {
             config.addStaticFiles("/templates", Location.CLASSPATH);
         }).start(7000);
 
-        app.get("/", ctx -> ctx.redirect("/login.html"));
+        app.get("/", ctx -> ctx.redirect("/admin.html"));
 
         app.post("/login.action", ctx -> {
             String email = ctx.formParam("email");
