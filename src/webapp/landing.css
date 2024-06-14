@@ -23,19 +23,22 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    margin-top:150px;
 }
 
 h1 {
     margin-bottom: 30px;
 }
 
-p {
+p  {
     font-size: 18px;
     line-height: 1.6;
-    margin-top: 180px;
-    margin-left: 200px;
+    margin-top: -30px;
+    margin-left: 150px;
 }
-
+h3 {  margin-top: 5px;
+        margin-left: 30px;
+}
 p::after {
     content: " 😊";
 }
