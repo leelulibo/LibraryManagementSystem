@@ -1,112 +1,156 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Responsive Admin Dashboard</title>
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-<!--    =============================Navigation=======================-->
-     <div class="container">
-         <div class="navigation">
-             <ul>
-                 <li>
-                 <a href="#">
-                     <span class="icon"><ion-icon name="book-outline"></ion-icon></span>
-                     <span class="title">Brand Name</span>
-                 </a>
-                 </li>
-                 <li>
-                     <a href="">
-                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                         <span class="title">Dashboard</span>
-                     </a>
-                 </li>
+<!--<!DOCTYPE html>-->
+<!--    <html lang="en">-->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--         <title>Responsive Admin Dashboard</title>-->
+<!--        <link rel="stylesheet" href="main.css">-->
+<!--    </head>-->
+<!--    <body>-->
+<!--&lt;!&ndash;    =============================Navigation=======================&ndash;&gt;-->
+<!--     <div class="container">-->
+<!--         <div class="navigation">-->
+<!--             <ul>-->
+<!--                 <li>-->
+<!--                 <a href="#">-->
+<!--                     <span class="icon"><ion-icon name="book-outline"></ion-icon></span>-->
+<!--                     <span class="title">Brand Name</span>-->
+<!--                 </a>-->
+<!--                 </li>-->
+<!--                 <li>-->
+<!--                     <a href="">-->
+<!--                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>-->
+<!--                         <span class="title">Dashboard</span>-->
+<!--                     </a>-->
+<!--                 </li>-->
 
-                 <li>
-                     <a href="">
-                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                         <span class="title">Librarians</span>
-                     </a>
-                 </li>
+<!--                 <li>-->
+<!--                     <a href="">-->
+<!--                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>-->
+<!--                         <span class="title">Librarians</span>-->
+<!--                     </a>-->
+<!--                 </li>-->
 
-                 <li>
-                     <a href="">
-                         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                         <span class="title">Messages</span>
-                     </a>
-                 </li>
+<!--                 <li>-->
+<!--                     <a href="">-->
+<!--                         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>-->
+<!--                         <span class="title">Messages</span>-->
+<!--                     </a>-->
+<!--                 </li>-->
 
-                 <li>
-                     <a href="">
-                         <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
-                         <span class="title">Help</span>
-                     </a>
-                 </li>
+<!--                 <li>-->
+<!--                     <a href="">-->
+<!--                         <span class="icon"><ion-icon name="help-outline"></ion-icon></span>-->
+<!--                         <span class="title">Help</span>-->
+<!--                     </a>-->
+<!--                 </li>-->
 
-                 <li>
-                     <a href="">
-                         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                         <span class="title">Password</span>
-                     </a>
-                 </li>
+<!--                 <li>-->
+<!--                     <a href="">-->
+<!--                         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>-->
+<!--                         <span class="title">Password</span>-->
+<!--                     </a>-->
+<!--                 </li>-->
 
-                 <li>
-                     <a href="">
-                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                         <span class="title">Settings</span>
-                     </a>
-                 </li>
+<!--                 <li>-->
+<!--                     <a href="">-->
+<!--                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>-->
+<!--                         <span class="title">Settings</span>-->
+<!--                     </a>-->
+<!--                 </li>-->
 
-                <li>
-                 <a href="">
-                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                     <span class="title">Sign Out</span>
-                 </a>
-                 </li>
-             </ul>
-         </div>
+<!--                <li>-->
+<!--                 <a href="">-->
+<!--                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>-->
+<!--                     <span class="title">Sign Out</span>-->
+<!--                 </a>-->
+<!--                 </li>-->
+<!--             </ul>-->
+<!--         </div>-->
 
-         <div class="main">
-             <div class="topbar">
-                 <div class="toggle">
-                     <ion-icon name="menu-outline"></ion-icon>
-                 </div>
-<!--                 ======search=======-->
-                 <div class="search">
-                     <label>
-                         <input type="text" placeholder="Search Here">
-                         <ion-icon name="search-outline" ></ion-icon>
-                     </label>
-                 </div>
-             </div>
-         </div>
-     </div>
+<!--         <div class="main">-->
+<!--             <div class="topbar">-->
+<!--                 <div class="toggle">-->
+<!--                     <ion-icon name="menu-outline"></ion-icon>-->
+<!--                 </div>-->
+<!--&lt;!&ndash;                 ======search=======&ndash;&gt;-->
+<!--                 <div class="search">-->
+<!--                     <label>-->
+<!--                         <input type="text" placeholder="Search Here">-->
+<!--                         <ion-icon name="search-outline" ></ion-icon>-->
+<!--                     </label>-->
+<!--                 </div>-->
+<!--             </div>-->
+<!--         </div>-->
 
-<script src="main.js"></script>
-<!--====================icons==============================-->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-        // =====menu toggle=====
-        let toggle = document.querySelector('.toggle');
-        let navigation = document.querySelector('.navigation');
-        let main = document.querySelector('.main');
+<!--&lt;!&ndash;         ===============dashboard=========================&ndash;&gt;-->
+<!--            <div class="header-content">-->
+<!--                <div class="header&#45;&#45;title">-->
+<!--                    <span>Primary</span>-->
+<!--                    <h2>Dashboard</h2>-->
+<!--                </div>-->
+<!--                <div class="user&#45;&#45;info">-->
+<!--                    <i class="fasolid fa-search"></i>-->
+<!--                    <input type="text" placeholder="search">-->
+<!--                </div>-->
+<!--            </div>-->
 
-        toggle.onclick = function (){
-            navigation.classList.toggle('active');
-        }
-        //add hovered class in selected list item
-        let list = document.querySelectorAll('.navigation li');
-        function activeLink(){
-          list.forEach((item) =>
-          item.classList.remove('hovered'));
-          this.classList.add('hovered')
-        }
-        list.forEach((item) =>
-        item.addEventListener('mouseover',activeLink));
-    </script>
-    </body>
-    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;         <div class="cardBox">&ndash;&gt;-->
+<!--&lt;!&ndash;             <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;                 <div class="numbers">9000</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                 <div class="cardName">Borrowed Books</div>&ndash;&gt;-->
+<!--&lt;!&ndash;             </div>&ndash;&gt;-->
+<!--&lt;!&ndash;             <div class="iconBx">&ndash;&gt;-->
+<!--&lt;!&ndash;                 xxxx&ndash;&gt;-->
+<!--&lt;!&ndash;             </div>&ndash;&gt;-->
+<!--&lt;!&ndash;         </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;         <div class="cardBox">&ndash;&gt;-->
+<!--&lt;!&ndash;             <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;                 <div class="numbers">8000</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                 <div class="cardName">Orders</div>&ndash;&gt;-->
+<!--&lt;!&ndash;             </div>&ndash;&gt;-->
+<!--&lt;!&ndash;             <div class="iconBx">&ndash;&gt;-->
+<!--&lt;!&ndash;                 xxxx&ndash;&gt;-->
+<!--&lt;!&ndash;             </div>&ndash;&gt;-->
+<!--&lt;!&ndash;         </div>&ndash;&gt;-->
+<!--     </div>-->
+
+<!--<script src="main.js"></script>-->
+<!--&lt;!&ndash;====================icons==============================&ndash;&gt;-->
+<!--    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>-->
+<!--    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>-->
+<!--    <script>-->
+<!--        // =====menu toggle=====-->
+<!--        let toggle = document.querySelector('.toggle');-->
+<!--        let navigation = document.querySelector('.navigation');-->
+<!--        let main = document.querySelector('.main');-->
+
+<!--        toggle.onclick = function (){-->
+<!--            navigation.classList.toggle('active');-->
+<!--        }-->
+<!--        //add hovered class in selected list item-->
+<!--        let list = document.querySelectorAll('.navigation li');-->
+<!--        function activeLink(){-->
+<!--          list.forEach((item) =>-->
+<!--          item.classList.remove('hovered'));-->
+<!--          this.classList.add('hovered')-->
+<!--        }-->
+<!--        list.forEach((item) =>-->
+<!--        item.addEventListener('mouseover',activeLink));-->
+<!--    </script>-->
+<!--    </body>-->
+<!--    </html>-->

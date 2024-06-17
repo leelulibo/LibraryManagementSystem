@@ -20,6 +20,7 @@ body{
     min-height: 100vh;
     overflow-x: hidden;
 
+
 }
 
 .container{
@@ -40,7 +41,7 @@ body{
 
 .navigation.active{
 
-    width: 150px;
+    width: 20px;
 }
 .navigation ul{
     position:absolute;
@@ -190,4 +191,18 @@ body{
     top:0;
     left:10px;
     font-size: 1.2em;
+}
+.cardBox{
+    position:relative;
+    width:100%;
+    padding:20px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+.cardBox .card{
+    position:relative;
+    background: var(--white);
+    padding:30px;
+    box-shadow: 0 7px 25px rgba(0,0,0.8);
 }
