@@ -1,0 +1,17 @@
+<table xmlns:th="http://www.w3.org/1999/xhtml">
+    <thead>
+    <tr>
+        <th>Book Title</th>
+        <th>Borrowed Date</th>
+        <th>Due Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${borrowRecord}">
+        <td th:text="${book.user}"></td>
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.book}"></td>
+        <td th:text="${book.borrowDate}"></td>
+        <td th:text="${book.returnDate}"></td> </tr>
+    </tbody>
+</table>

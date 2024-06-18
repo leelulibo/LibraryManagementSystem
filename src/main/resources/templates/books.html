@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="portal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>User Portal</title>
+</head>
+<body>
+<div class="sidebar">
+    <div class="logo">
+        <ul class="main">
+            <li class="active">
+                <a href="#">
+                    <i class="fas fa-home"></i>  <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-book"></i>  <span>Browse Books</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-exchange-alt"></i>  <span>Borrowed Books</span>
+                </a>
+            </li>
+            <li>
+                <a href="help.html">
+                    <i class="fas fa-question-circle"></i>  <span>Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>  <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>  <span>Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main--content">
+    <div class="header--wrapper">
+        <div class="header--title">
+
+            <h2>Dashboard</h2>
+        </div>
+        <div class="user--info">
+            <div class="search--box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <img src="./images/emptyprofile.jpg">
+        </div>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th> ID</th>
+            <th>Book Name</th>
+            <th>Is Available? </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td> <button th:if="${book.available}" type="button">Borrow</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- Borrow and return forms -->
+    <form th:action="@{/user/books/borrow}" method="post">
+        <input type="text" name="bookId" placeholder="Book ID" required>
+        <button type="submit">Borrow</button>
+    </form>
+
+    <form th:action="@{/user/books/return}" method="post">
+        <input type="text" name="bookId" placeholder="Book ID" required>
+        <button type="submit">Return</button>
+    </form>
+
+    <!-- Logout button -->
+    <form th:action="@{/logout}" method="get">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+</body>
+</html>

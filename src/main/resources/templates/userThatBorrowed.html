@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <style>
+        .line {
+            background-color: #100;
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="contents">
+    <section class="borrowedList">
+        <h2>Users Who Borrowed Books</h2>
+
+        <p id="no_borrowed_books" th:if="${#lists.isEmpty(borrowedBooks)}">No books are currently borrowed!</p>
+
+        <div id="borrowed_books" th:unless="${#lists.isEmpty(borrowedBooks)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Book Title</th>
+                    <th>Borrowed Date</th>
+                    <th>Return Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="borrowedBook : ${borrowedBooks}">
+                    <td th:text="${borrowedBook.user.name}"></td>
+                    <td th:text="${borrowedBook.book.title}"></td>
+                    <td th:text="${borrowedBook.borrowedDate}"></td>
+                    <td th:text="${borrowedBook.returnDate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+</div>
+
+</body>
+</html>
