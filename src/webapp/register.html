@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<form class="registration-form">
+    <h2>Library Registration</h2>
+    <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+    </div>
+    <div class="form-group">
+        <label for="idNumber">ID Number</label>
+        <input type="text" id="idNumber" name="idNumber" required>
+    </div>
+    <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required readonly>
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" required>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" pattern="0[0-9]{9}" required>
+        <div class="error" id="phoneError"></div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <span class="tooltip">We'll never share your email with anyone else.</span>
+        <div class="error" id="emailError"></div>
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="password-strength" id="passwordStrength"></div>
+        <span class="tooltip" id="passwordRequirements">Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special case.</span>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <div id="passwordMatchError" class="error"></div>
+    </div>
+
+    <div class="form-group checkbox">
+        <label for="terms">I agree to the <a href="#" id="termsLink">Terms and Conditions</a></label>
+    </div><input type="checkbox" id="termsCheckbox" required>
+    <button type="submit">Register</button>
+</form>
+
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">Terms and Conditions</div>
+        <p>Welcome to our library! By registering as a member, you agree to the following terms and conditions:</p>
+        <ol>
+            <li>You must present your library card for all borrowing transactions.</li>
+            <li>Books and other materials borrowed must be returned by the due date.</li>
+            <li>Overdue materials will incur a daily fine.</li>
+            <li>Lost or damaged materials must be reported immediately and will be charged to the member's account.</li>
+            <li>Members are responsible for keeping their contact information up to date.</li>
+            <li>The library reserves the right to revoke membership privileges for violations of these terms or other library policies.</li>
+            <li>Members must comply with all library rules and regulations.</li>
+            <li>The library is not responsible for any personal belongings lost or stolen on library premises.</li>
+        </ol>
+        <div class="modal-footer">
+            <button class="accept">Accept</button>
+            <button class="decline">Decline</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("termsModal");
+    var termsLink = document.getElementById("termsLink");
+    var closeBtn = document.getElementsByClassName("close")[0];
+    var acceptBtn = document.querySelector(".accept");
+    var declineBtn = document.querySelector(".decline");
+    var termsCheckbox = document.getElementById("termsCheckbox");
+
+    // Disable the checkbox initially
+    termsCheckbox.disabled = true;
+
+    termsLink.onclick = function(event) {
+        event.preventDefault();
+        modal.style.display = "block";
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    acceptBtn.onclick = function() {
+        termsCheckbox.checked = true;
+        termsCheckbox.disabled = false; // Enable the checkbox
+        modal.style.display = "none";
+    }
+
+    declineBtn.onclick = function() {
+        termsCheckbox.checked = false;
+        termsCheckbox.disabled = true; // Disable the checkbox
+        modal.style.display = "none";
+    }
+
+    document.querySelector('.registration-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Check if the terms checkbox is checked
+        if (!termsCheckbox.checked) {
+            alert("Please accept the terms and conditions to register.");
+            return;
+        }
+
+        // Validate password strength
+        var password = document.getElementById("password").value;
+        if (!isPasswordStrong(password)) {
+            alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+            return;
+        }
+
+        // Perform registration (This is where you would do any backend processing, like sending the form data to a server)
+
+        // Show success message
+        alert("Registration successful!");
+
+        // Clear form fields
+        clearForm();
+
+        // Redirect to the registration page
+        window.location.href = "register-success.html"; // Change the URL to your registration success page
+    });
+
+    function isPasswordStrong(password) {
+        // Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+        var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return passwordRegex.test(password);
+    }
+
+    function clearForm() {
+        // Clear all input fields
+        var inputs = document.querySelectorAll('.registration-form input');
+        inputs.forEach(function(input) {
+            input.value = "";
+        });
+
+        // Uncheck the terms checkbox and disable it
+        termsCheckbox.checked = false;
+        termsCheckbox.disabled = true;
+
+        // Clear any error messages
+        var errorFields = document.querySelectorAll('.error');
+        errorFields.forEach(function(errorField) {
+            errorField.textContent = "";
+        });
+
+        // Clear any class added for password mismatch
+        document.getElementById
+("confirmPassword").classList.remove("password-mismatch");
+    }
+
+    document.getElementById("confirmPassword").addEventListener('input', function() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = this.value;
+        var passwordField = document.getElementById("password");
+        var confirmPasswordField = this;
+        var errorField = document.getElementById("passwordMatchError");
+
+        if (password !== confirmPassword) {
+            confirmPasswordField.classList.add("password-mismatch");
+            errorField.textContent = "Passwords do not match";
+        } else {
+            confirmPasswordField.classList.remove("password-mismatch");
+            errorField.textContent = "";
+        }
+    });
+
+    document.getElementById("idNumber").addEventListener('input', function() {
+        var idNumber = this.value;
+
+        if (idNumber.length >= 6) {
+            var year = idNumber.substring(0, 2);
+        var month = idNumber.substring(2, 4);
+        var day = idNumber.substring(4, 6);
+        // Determine whether the year belongs to the 1900s or 2000s based on current year
+        var currentYear = new Date().getFullYear();
+        var centuryPrefix = currentYear - parseInt('20' + year) >= 0 ? '20' : '19';
+        var fullYear = centuryPrefix + year;
+        var dobValue = fullYear + '-' + month + '-' + day;
+        document.getElementById("dob").value = dobValue;
+        // Disable the Date of Birth field
+        document.getElementById("dob").disabled = true;
+    } else {
+        // Clear the Date of Birth field and enable it
+        document.getElementById("dob").value = "";
+        document.getElementById("dob").disabled = false;
+    }
+});
+</script>
+
+</body>
+</html>

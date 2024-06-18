@@ -1,36 +1,26 @@
 package org.example;
 
 import io.javalin.Javalin;
+import io.javalin.http.staticfiles.Location;
 
 public class Server {
-
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {
-            config.defaultContentType = "application/json";
-            config.enableCorsForAllOrigins();
+            config.addStaticFiles("../../webapp", Location.CLASSPATH);
         }).start(7000);
 
-        app.get("/", ctx -> ctx.result("Hello, World!"));
+        app.get("/", ctx -> ctx.redirect("/login.html"));
 
-        app.routes(() -> {
-            app.get("/hello", ctx -> ctx.result("Hello, Javalin!"));
-            app.post("/data", ctx -> {
-                String body = ctx.body();
-                ctx.result("Received: " + body);
-            });
-            app.get("/users/{userId}", ctx -> {
-                String userId = ctx.pathParam("userId");
-                ctx.result("User ID: " + userId);
-            });
+        app.post("/login.action", ctx -> {
+            String email = ctx.formParam("email");
+            // Perform login logic
+            if (email != null && email.equals("test@example.com")) {
+                ctx.result("Login successful!");
+            } else {
+                ctx.result("Invalid email address.");
+            }
         });
 
-        app.exception(Exception.class, (e, ctx) -> {
-            ctx.status(500);
-            ctx.result("Internal Server Error: " + e.getMessage());
-        });
-
-        app.error(404, ctx -> {
-            ctx.json("Custom 404 Page Not Found");
-        });
+        // Add other routes as needed
     }
 }
