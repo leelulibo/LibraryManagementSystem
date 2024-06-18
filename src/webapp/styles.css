@@ -55,7 +55,7 @@
         .registration-form button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #5cb85c;
             border: none;
             color: white;
             font-size: 16px;
@@ -63,7 +63,7 @@
             cursor: pointer;
         }
         .registration-form button:hover {
-            background-color: #0056b3;
+            background-color: #3A596F;
         }
         .modal {
             display: none;
