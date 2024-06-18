@@ -16,11 +16,11 @@ import org.eclipse.jetty.server.session.SessionHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.IContext;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import library.model.Book;
 import library.model.BookCategory;
-import org.example.User; // Make sure this import is correct
 import library.persistence.BookDAO;
 import library.persistence.UserDAO;
 import library.persistence.collectionbased.BookDAOImpl;
@@ -38,17 +38,15 @@ import java.util.stream.Stream;
 
 public class Server {
     public static final String SESSION_USER_KEY = "User";
-    private static final String PAGES_DIR = "/landing.html";
-    private static final String TEMPLATES_DIR = "/templates/";
+    private static final String STATIC_FILES_DIR = "/templates/";
 
     private final Javalin appServer;
 
     public Server() {
         JavalinThymeleaf.configure(templateEngine());
-
         appServer = Javalin.create(config -> {
-            config.addStaticFiles(PAGES_DIR, Location.CLASSPATH);
-            config.accessManager(accessManager());
+            config.addStaticFiles(STATIC_FILES_DIR, Location.CLASSPATH);
+//            config.accessManager(accessManager());
             config.sessionHandler(sessionHandler());
         });
 
@@ -61,7 +59,7 @@ public class Server {
     public static void main(String[] args) {
         Server server = new Server();
         seedDemoData();
-        server.start(5050);
+        server.start(5052);
     }
 
     @Nullable
@@ -140,7 +138,7 @@ public class Server {
     private TemplateEngine templateEngine() {
         TemplateEngine templateEngine = new TemplateEngine();
         ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
-        resolver.setPrefix(TEMPLATES_DIR);
+        resolver.setPrefix(STATIC_FILES_DIR); // Adjusted to match the static files directory
         templateEngine.setTemplateResolver(resolver);
         templateEngine.addDialect(new LayoutDialect());
         return templateEngine;
@@ -149,21 +147,36 @@ public class Server {
     public static class Routes {
         public static final String LOGIN_PAGE = "/login";
         public static final String LOGIN_ACTION = "/login-action";
+        public static final String REGISTER_ACTION = "/register-action";
         public static final String BOOKS = "/books";
+        public static final String REGISTER = "/register";
+
 
         public static void configure(Server server) {
             server.routes(() -> {
-                io.javalin.apibuilder.ApiBuilder.get(BOOKS, Routes::listBooks);
+                io.javalin.apibuilder.ApiBuilder.get(BOOKS, Routes::view);
                 io.javalin.apibuilder.ApiBuilder.post("/books/borrow", Routes::borrowBook);
-                io.javalin.apibuilder.ApiBuilder.post("/books/return/:id", Routes::returnBook);
+                io.javalin.apibuilder.ApiBuilder.post("/books/return/{id}", Routes::returnBook);
                 io.javalin.apibuilder.ApiBuilder.get(LOGIN_PAGE, Routes::showLoginPage);
                 io.javalin.apibuilder.ApiBuilder.post(LOGIN_ACTION, Routes::login);
+                io.javalin.apibuilder.ApiBuilder.post(REGISTER_ACTION, Routes::register);
+                io.javalin.apibuilder.ApiBuilder.get(REGISTER, Routes::showRegister);
+
+
             });
         }
 
-        private static void listBooks(Context ctx) {
+        private static void showRegister(Context context) {
+            context.render("register.html");
+        }
+
+        private static void view(Context ctx) {
             BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
-            ctx.json(bookDAO.getAllBooks());
+            Map<String, Object> viewModel = Map.of(
+                    "books", bookDAO.getAllBooks()
+            );
+            ctx.render("books.html", viewModel);
+
         }
 
         private static void borrowBook(Context ctx) {
@@ -203,7 +216,7 @@ public class Server {
         }
 
         private static void showLoginPage(Context ctx) {
-            ctx.render("login.html");
+            ctx.redirect("login.html");
         }
 
         private static void login(Context ctx) {
@@ -213,10 +226,24 @@ public class Server {
 
             if (user != null) {
                 ctx.sessionAttribute(SESSION_USER_KEY, user);
-                ctx.redirect("/books");
+                ctx.redirect(BOOKS); // Redirect to the books page after successful login
             } else {
                 ctx.status(401).result("Invalid email.");
             }
         }
+
+        private static void register(Context ctx) {
+            String email = ctx.formParam("username");
+            String password = ctx.formParam("password");
+            String confirmPassword = ctx.formParam("confirmPassword");
+
+            System.out.println("Email: " + email);
+            System.out.println("Password: " + password);
+
+            ctx.redirect("/login");
+        }
+
+
+
     }
 }

@@ -9,8 +9,8 @@
     font-family: "Poppins", sans-serif;
 }
 body {
-    display: flex;
-
+      display: flex;
+      background-image: url("purplelibrary.jpg");
 }
 
 .sidebar {
@@ -20,7 +20,7 @@ body {
     bottom: 0;
     width: 110px;
     height: 100vh;
-    padding: 0 1.7rem;
+    padding: 0 1.9rem;
     color: #fff;
     overflow: hidden;
     transition: all 0.5s linear;
