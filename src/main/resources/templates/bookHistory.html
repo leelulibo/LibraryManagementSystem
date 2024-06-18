@@ -7,11 +7,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="book : ${borrowRecord}">
-        <td th:text="${book.user}"></td>
-        <td th:text="${book.id}"></td>
-        <td th:text="${book.book}"></td>
-        <td th:text="${book.borrowDate}"></td>
-        <td th:text="${book.returnDate}"></td> </tr>
+    <tr th:each="records : ${borrowRecord}">
+        <td th:text="${record.user}"></td>
+        <td th:text="${record.id}"></td>
+        <td th:text="${record.book}"></td>
+        <td th:text="${record.borrowDate}"></td>
+        <td th:text="${record.returnDate}"></td> </tr>
     </tbody>
 </table>

@@ -27,7 +27,7 @@ body {
     background: rgba(113, 99, 186, 255);
 }
 .sidebar:hover{
-    width:240px;
+    width:300px;
     transition:0.5s;
 }
 .logo {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <title>User Portal</title>
 </head>
+
 <body>
 <div class="sidebar">
     <div class="logo">
@@ -18,13 +19,13 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-book"></i>  <span>Browse Books</span>
+                <a href="bookHistory.html">
+                    <i class="fas fa-book"></i>  <span>Borrowed Books</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fas fa-exchange-alt"></i>  <span>Borrowed Books</span>
+                    <i class="fas fa-exchange-alt"></i>  <span>Return Books</span>
                 </a>
             </li>
             <li>
@@ -38,7 +39,7 @@
                 </a>
             </li>
             <li class="logout">
-                <a href="#">
+                <a href="index.html">
                     <i class="fas fa-sign-out-alt"></i>  <span>Sign Out</span>
                 </a>
             </li>
@@ -70,27 +71,33 @@
         </thead>
         <tbody>
         <tr th:each="book : ${books}">
-            <td th:text="${book.id}"></td>
+            <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
-            <td> <button th:if="${book.available}" type="button">Borrow</button></td>
+            <td>
+                <a th:id="'borrow_' + ${book.id}" th:text="${book.title}" th:href="@{'/book/borrow?bookId=' + ${book.id}}"></a>
+            </td>
         </tr>
+
         </tbody>
     </table>
-    <!-- Borrow and return forms -->
-    <form th:action="@{/user/books/borrow}" method="post">
-        <input type="text" name="bookId" placeholder="Book ID" required>
-        <button type="submit">Borrow</button>
-    </form>
 
-    <form th:action="@{/user/books/return}" method="post">
-        <input type="text" name="bookId" placeholder="Book ID" required>
-        <button type="submit">Return</button>
-    </form>
+    <!-- Borrow and return forms -->
+<!--    <form th:action="@{/books/borrow}" method="post">-->
+<!--        <input type="text" name="bookId" placeholder="Book ID" required>-->
+<!--        <button type="submit">Borrow</button>-->
+<!--    </form>-->
+
+<!--    <form th:action="@{/user/books/return}" method="post">-->
+<!--        <input type="text" name="bookId" placeholder="Book ID" required>-->
+<!--        <button type="submit">Return</button>-->
+<!--    </form>-->
 
     <!-- Logout button -->
-    <form th:action="@{/logout}" method="get">
-        <button type="submit">Logout</button>
-    </form>
+<!--    <form th:action="@{/logout}" method="get">-->
+<!--        <button type="submit">Logout</button>-->
+<!--    </form>-->
 </div>
 </body>
+
+
 </html>

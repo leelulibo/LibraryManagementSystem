@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
 <head>
-    <meta charset="UTF-8">
-    <title>Borrow Book</title>
+    <style>
+        .line {
+            background-color: #100;
+            height: 1px;
+        }
+    </style>
+    <title>Borrow Books</title>
 </head>
 <body>
-<h1>BOOK BORROWED SUCCESSFULLY</h1>
-<IMG src="land.jpg">
+<div layout:fragment="contents">
+    <section class="borrowBook">
+        <h2>Borrow a Book</h2>
+
+        <h3>Full discription of the book</h3>
+        <table>
+            <tr th:each="borrow : ${BorrowRecord.BorrowRecord}">
+                <td>Borrow Date</td>
+                <td id="borrowRecord_date" th:text="${borrow.date}"></td>
+            <tr>
+                <td>Title</td>
+                <td id="borrow_title" th:text="${borrow.title}"></td>
+            <tr>
+                <td>Return Date</td>
+                <td id="return_date" th:text="${borrow.returnDate}"></td>
+            <tr>
+            </tr>
+        </table>
+        <form action="submit.action" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="expenseId" id="expenseId" th:value="${borrowRecord.id}"/>
+            <input type="submit" value="Submit">
+            <a href="bookHistory.html"></a>
+        </form>
+
+
+
+
+    </section>
+</div>
 </body>
 </html>

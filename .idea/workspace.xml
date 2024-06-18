@@ -5,33 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/help.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/purplelibrary.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/settings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/library/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/library/controller/BorrowRecordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/BookRecordDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/collectionbased/BookRecordDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/DatabaseConnection.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/books.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/portal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/portal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user_portal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/books.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/images/land.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/land.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/landing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/landing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/landing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/welcom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/welcom.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -64,9 +52,10 @@
     "Application.Server.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Lulibo",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/CAPACITI/Documents/Library-updated[1]/Library/src/main/resources/templates",
+    "last_opened_file_path": "C:/Users/CAPACITI/LibraryManagementSystem/Library/src/main/resources/templates",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -75,6 +64,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CAPACITI\LibraryManagementSystem\Library\src\main\resources\templates" />
       <recent name="C:\Users\CAPACITI\Documents\Library-updated[1]\Library\src\main\resources\templates" />
     </key>
   </component>

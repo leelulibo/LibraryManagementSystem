@@ -2,35 +2,35 @@ package library.controller;
 
 import io.javalin.http.Handler;
 import library.model.Book;
+import library.model.BorrowRecord;
 import library.persistence.BookDAO;
-
+import library.persistence.BookRecordDAO;
 import library.persistence.UserDAO;
-import org.example.Server;
-import org.example.User;
 import org.example.ServiceRegistry;
-import org.thymeleaf.context.IContext;
+import org.example.User;
 
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 
-public class BooksController {
+
+public class BorrowRecordController {
 
 
-    public static final Handler viewBooks = context -> {
-        BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
 
-        Collection<Book> books = bookDAO.getAllBooks();
+    public static final Handler viewRecords = context -> {
+        BookRecordDAO bookRecordDAO = ServiceRegistry.lookup(BookRecordDAO.class);
+
+        Collection<BorrowRecord> records = bookRecordDAO.getAllBorrowedRecords();
         Map<String, Object> viewModel = Map.of(
-          "books",books
+                "records",records
         );
-        context.render("books.html", viewModel);
+        context.render("booksHistory.html", viewModel);
     };
 
     // TODO Implement borrow books
     public static Handler borrowBook = context -> {
-        System.out.println("am borrowing a book");
         BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
         UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
 
@@ -70,3 +70,4 @@ public class BooksController {
     };
 
 }
+
