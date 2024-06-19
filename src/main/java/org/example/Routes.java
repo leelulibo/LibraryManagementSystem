@@ -16,6 +16,8 @@ public class Routes {
     public static final String BOOKS = "/books";
     public static final String BORROW_BOOK = "/book/borrow";
     public static final String RETURN_BOOKS = "/books/return/{id}";
+    public static final String SHOW_BOOK = "/book/show";
+
 
     public static final String REGISTER = "/register";
     public static final String REGISTER_ACTION = "/register-action";
@@ -30,8 +32,10 @@ public class Routes {
             ApiBuilder.post(REGISTER, UserController.viewRegister);
             ApiBuilder.post(REGISTER_ACTION, UserController.register);
             ApiBuilder.get(BOOKS, BooksController.viewBooks);
-            ApiBuilder.get(BORROW_BOOK, BooksController.borrowBook);
+            ApiBuilder.get(SHOW_BOOK, BooksController.showBook);
             ApiBuilder.post(BORROW_BOOK, BooksController.borrowBook);
+
+//            ApiBuilder.post(BORROW_BOOK, BooksController.borrowBook);
             ApiBuilder.post(RETURN_BOOKS, BooksController.returnBook);
             ApiBuilder.get(ADMIN, AdminController.viewAdminLogin);
 //            ApiBuilder.get(BORROW_BOOK,BooksController.borrowBook);

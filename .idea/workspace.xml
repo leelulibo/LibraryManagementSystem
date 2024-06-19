@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/DatabaseConnection.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/books.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -23,7 +23,7 @@
             <input type="hidden" name="bookId" th:value="${book.id}" />
             <label for="userEmail">User Email:</label>
             <input type="email" id="userEmail" name="userEmail" required autofocus />
-            <button type="submit">Borrow Book</button>
+            <button  action="/submit-action">Borrow Book</button>
         </form>
     </div>
     <div th:unless="${book.isAvailable}">

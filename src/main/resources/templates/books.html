@@ -162,7 +162,7 @@
             <td th:text="${book.title}"></td>
             <td th:text="${book.category}"></td>
             <td>
-                <a th:id="'borrow_' + ${book.id}" th:text="${book.title}" th:href="@{'/book/borrow?bookId=' + ${book.id}}"></a>
+                <a th:id="'borrow_' + ${book.id}" th:text="${book.title}" th:href="@{'/book/show?bookId=' + ${book.id}}"></a>
             </td>
         </tr>
         </tbody>
