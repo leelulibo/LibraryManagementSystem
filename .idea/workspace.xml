@@ -5,70 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="login">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/model/BookCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/model/BorrowRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/model/DateHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/model/LibraryException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/BookDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/collectionbased/BookDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/collectionbased/UserDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ServiceRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addUsers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin_portal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/availableBook.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/books.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/books.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/google.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/help.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/images/emptyprofile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/images/exception.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/images/library1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/images/library2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/images/phone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/images/whatsapp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/insta.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/library1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/library2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/list-books.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/phone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/phonecall.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/portal.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/purplelibrary.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/settings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/the blue.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/userThatBorrowed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/wapp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/whatsapp.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/templates/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/images/land.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/land.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/landing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/landing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/landing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webapp/welcom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/welcom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/landing.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/settings.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -102,9 +43,11 @@
     "Application.Server.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging Ayanda",
+    "git-widget-placeholder": "Ayanda",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/CAPACITI/Documents/Library-updated[1]/Library/src/main/resources/templates",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -114,6 +57,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\CAPACITI\Documents\Library-updated[1]\Library\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mdudu\IdeaProjects\LibraryManagementSystem\src\main\resources\templates\images" />
     </key>
   </component>
   <component name="RunManager">
