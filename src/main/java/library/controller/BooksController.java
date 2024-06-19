@@ -30,22 +30,30 @@ public class BooksController {
 
     // TODO Implement borrow books
     public static Handler borrowBook = context -> {
-        System.out.println("am borrowing a book");
-        BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
-        UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
 
-        UUID bookId = UUID.fromString(context.formParam("bookId"));
-        String userEmail = context.formParam("userEmail");
+
+        BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
+        User personLoggedIn = Server.getUserLoggedIn(context);
+
+        UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
+        String id = context.queryParam("bookId");
+        System.out.println("borrowing book");
+
+        UUID bookId = UUID.fromString(id);
+
+//        String userEmail = context.formParam("userEmail");
 
         Book book = bookDAO.findBookById(bookId);
-        User user = userDAO.findUserByEmail(userEmail).orElse(null);
+//        User user = userDAO.findUserByEmail(userEmail).orElse(null);
+        Map<String, Object> viewModel = Map.of("book", book);
+        context.render("borrow.html", viewModel);
 
-        if (book.isAvailable()) {
-            book.borrowBook(user, LocalDate.now(), LocalDate.now().plusWeeks(2));
-            context.status(204);
-        } else {
-            context.status(400).result("Book is already borrowed.");
-        }
+//        if (book.isAvailable()) {
+//            book.borrowBook(user, LocalDate.now(), LocalDate.now().plusWeeks(2));
+//            context.status(204);
+//        } else {
+//            context.status(400).result("Book is already borrowed.");
+//        }
     };
 
     // TODO Implement return books

@@ -40,9 +40,19 @@ public class BorrowRecordController {
         Book book = bookDAO.findBookById(bookId);
         User user = userDAO.findUserByEmail(userEmail).orElse(null);
 
+
+
         if (book.isAvailable()) {
             book.borrowBook(user, LocalDate.now(), LocalDate.now().plusWeeks(2));
             context.status(204);
+            BookRecordDAO bookRecordDAO = ServiceRegistry.lookup(BookRecordDAO.class);
+
+            Collection<BorrowRecord> records = bookRecordDAO.getAllBorrowedRecords();
+            Map<String, Object> viewModel = Map.of(
+                    "records",records
+            );
+            context.render("booksHistory.html", viewModel);
+
         } else {
             context.status(400).result("Book is already borrowed.");
         }

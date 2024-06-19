@@ -10,10 +10,11 @@ import static library.controller.BorrowRecordController.viewRecords;
 
 public class Routes {
     public static final String LOGIN_ACTION = "/login-action";
+    public static final String LOGIN_PAGE = "/login";
     public static final String LOGIN = "/login";
     public static final String LOGOUT_ACTION = "/logout";
     public static final String BOOKS = "/books";
-    public static final String BORROW_BOOKS = "/book/borrow{id}";
+    public static final String BORROW_BOOK = "/book/borrow";
     public static final String RETURN_BOOKS = "/books/return/{id}";
 
     public static final String REGISTER = "/register";
@@ -29,12 +30,12 @@ public class Routes {
             ApiBuilder.post(REGISTER, UserController.viewRegister);
             ApiBuilder.post(REGISTER_ACTION, UserController.register);
             ApiBuilder.get(BOOKS, BooksController.viewBooks);
-            ApiBuilder.post(BORROW_BOOKS, BooksController.borrowBook);
+            ApiBuilder.get(BORROW_BOOK, BooksController.borrowBook);
             ApiBuilder.post(RETURN_BOOKS, BooksController.returnBook);
             ApiBuilder.get(ADMIN, AdminController.viewAdminLogin);
-            ApiBuilder.get(BORROW_BOOKS,BooksController.borrowBook);
-            ApiBuilder.get(BORROW_BOOKS, BorrowRecordController.borrowBook);
-            ApiBuilder.post(BORROW_BOOKS, BorrowRecordController.borrowBook);
+//            ApiBuilder.get(BORROW_BOOK,BooksController.borrowBook);
+//            ApiBuilder.get(BORROW_BOOK, BorrowRecordController.borrowBook);
+//            ApiBuilder.post(BORROW_BOOKS, BorrowRecordController.borrowBook);
 
         });
     }

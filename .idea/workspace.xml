@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/controller/BorrowRecordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/BookRecordDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/persistence/collectionbased/BookRecordDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/DatabaseConnection.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/books.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/portal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/portal.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,16 +97,5 @@
     <option featureType="dependencySupport" implementationName="executable:docker" />
     <option featureType="dependencySupport" implementationName="executable:kubectl" />
     <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Server.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
