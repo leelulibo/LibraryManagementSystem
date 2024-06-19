@@ -6,14 +6,46 @@
     <title>Welcome to YourApp</title>
     <link rel="stylesheet" href="landing.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #E7F2F8; /* Background color for the rest of the page */
+            position: relative; /* Ensure the ::before pseudo-element is positioned relative to the body */
+        }
+        ntainer {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .faq {
+            text-align: center;
+        }
+        footer {
+            width: 100%;
+            background-color:#3A596F;
+            padding: 100px 5px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        footer div {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-</div>
-<div>
-    <h1>FAQ: Common Issues and Solutions </h1>
+<div class="container faq">
+    <h1>FAQ: Common Issues and Solutions</h1>
     <p>
         <strong>I can't log in to my account. What should I do?</strong><br>
         Solution: Ensure you are using the correct email address and password. If you still can’t log in, try resetting your password. If the problem persists, contact support at [support email or phone number].
@@ -31,11 +63,12 @@
         Solution: Ensure your browser is up to date. Clear your browser’s cache and cookies. Try accessing the site using a different browser. If the problem continues, contact technical support.
     </p>
 </div>
+
 <footer>
     <div class="contact">
         <h3><i class="fas fa-phone"></i> Contact us:</h3>
-        <h3> Phone: +27 793 947 502</h3>
-        <h3><i class="far fa-envelope"></i> Email: bookunity@library.co.za</h3>
+        <h3>Phone: +27 793 947 502</h3>
+        <h3><i class="fas fa-envelope"></i> Email: bookunity@library.co.za</h3>
     </div>
     <div class="address">
         <h3><i class="fas fa-map-marker-alt"></i> Address:</h3>
@@ -43,10 +76,11 @@
         <h3>Cape Town 7925</h3>
     </div>
     <div class="opening">
-        <h3><i class="far fa-clock"></i> Opening Hours:</h3>
+        <h3><i class="fas fa-clock"></i> Opening Hours:</h3>
         <h3>Mon-Fri: 9am-5pm</h3>
         <h3>Public Holidays & weekends: Closed</h3>
     </div>
 </footer>
+
 </body>
 </html>
