@@ -48,12 +48,12 @@ public class BooksController {
         Map<String, Object> viewModel = Map.of("book", book);
         context.render("borrow.html", viewModel);
 
-//        if (book.isAvailable()) {
-//            book.borrowBook(user, LocalDate.now(), LocalDate.now().plusWeeks(2));
-//            context.status(204);
-//        } else {
-//            context.status(400).result("Book is already borrowed.");
-//        }
+        if (book != null && book.isAvailable()) {
+            book.borrowBook(personLoggedIn, LocalDate.now(), LocalDate.now().plusWeeks(2));
+            context.status(204).result("Book borrowed successfully.");
+        } else {
+            context.status(400).result("Book is already borrowed or not found.");
+        }
     };
 
     // TODO Implement return books

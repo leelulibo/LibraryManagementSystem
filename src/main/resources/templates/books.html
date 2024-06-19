@@ -23,11 +23,11 @@
                     <i class="fas fa-book"></i>  <span>Borrowed Books</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-exchange-alt"></i>  <span>Return Books</span>
-                </a>
-            </li>
+<!--            <li>-->
+<!--                <a href="#">-->
+<!--                    <i class="fas fa-exchange-alt"></i>  <span>Return Books</span>-->
+<!--                </a>-->
+<!--            </li>-->
             <li>
                 <a href="help.html">
                     <i class="fas fa-question-circle"></i>  <span>Help</span>
@@ -67,7 +67,9 @@
         <tr>
             <th> ID</th>
             <th>Book Name</th>
+            <th>Book Category</th>
             <th>Select Book</th>
+
 
         </tr>
         </thead>
@@ -75,9 +77,12 @@
         <tr th:each="book : ${books}">
             <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
+            <td th:text="${book.category}"></td>
+
             <td>
                 <a th:id="'borrow_' + ${book.id}" th:text="${book.title}" th:href="@{'/book/borrow?bookId=' + ${book.id}}"></a>
             </td>
+
         </tr>
 
         </tbody>

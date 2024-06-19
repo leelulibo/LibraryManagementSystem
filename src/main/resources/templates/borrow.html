@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{/layout.html}">-->
 <head>
     <style>
         .line {
@@ -12,31 +10,23 @@
     <title>Borrow Books</title>
 </head>
 <body>
-<!--<div layout:fragment="contents">-->
-    <section class="borrowBook">
-        <h2>Borrow a Book</h2>
-
-        <h3>Full discription of the book</h3>
-            <p th:text="${book.title}">
-            </p>
-        <p th:text="${book.author}">
-        </p>
-        <p th:if ="${book.isAvailable}">Book is available</p>
-
-
-        <!--        <form action="submit.action" method="post" enctype="application/x-www-form-urlencoded">-->
-<!--            <input type="hidden" name="expenseId" id="expenseId" th:value="${borrowRecord.id}"/>-->
-<!--            <input type="submit" value="Submit">-->
-<!--            <a href="bookHistory.html"></a>-->
-<!--        </form>-->
-        <div th:unless ="${book.isAvailable}">
-            <button action="submit-atio">Borrow book</button>
-
-        </div>
-
-
-
-    </section>
-</div>
+<section class="borrowBook">
+    <h2>Borrow a Book</h2>
+    <h3>Full Description of the Book</h3>
+    <p th:text="${book.title}"></p>
+    <p th:text="${book.author}"></p>
+    <p th:if="${book.isAvailable}">Book is available</p>
+    <div th:if="${book.isAvailable}">
+        <form th:action="@{/book/borrow}" method="post">
+            <input type="hidden" name="bookId" th:value="${book.id}" />
+            <label for="userEmail">User Email:</label>
+            <input type="email" id="userEmail" name="userEmail" required autofocus />
+            <button type="submit">Borrow Book</button>
+        </form>
+    </div>
+    <div th:unless="${book.isAvailable}">
+        <p>This book is currently unavailable.</p>
+    </div>
+</section>
 </body>
 </html>

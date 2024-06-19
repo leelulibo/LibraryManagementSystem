@@ -84,9 +84,19 @@ public class Server {
         User user2 = new User("user2@example.com", "User Two");
         Stream.of(user1, user2).forEach(userDAO::saveUser);
 
-        Book book1 = new Book("Fictional Book 1", "Author A", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
-        Book book2 = new Book("Non-Fictional Book 1", "Author B", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
-        Stream.of(book1, book2).forEach(bookDAO::saveBook);
+        Book book1 = new Book("Hamlet", "William Shakespeare", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book2 = new Book("Romeo & Juliet", "William Shakespeare", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book3 = new Book("Holly", "Stephen King", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book4 = new Book("Misery", "Stephen King", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book5 = new Book("Halowe'en Party", "Agatha Christie", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+
+        Book book6 = new Book("Becoming", "Michelle Obama", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book7 = new Book("The Light We Carry", "Michelle Obama", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book8 = new Book("A Brief History Of Time", "Stephen Hawking", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book9 = new Book("The Grand Design", "Stephen Hawking.", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book10 = new Book("I Know Why The Caged Bird", "Maya Angelou", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+
+        Stream.of(book1, book2, book3,book4,book5,book6,book7,book8,book9,book10).forEach(bookDAO::saveBook);
     }
 
     private Javalin configureExceptionsPage() {
