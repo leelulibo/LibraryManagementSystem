@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="" xmlns:th="http://www.w3.org/1999/xhtml">
-<style>
-
-h2, h3, p {
-    text-align: center;
-}
-.table{
-        text-align: center;
-
-    }
-     body {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="portal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>User Portal</title>
+    <style>
+        h2, h3, p {
+            text-align: center;
+        }
+        .table{
+            text-align: center;
+        }
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -34,28 +39,43 @@ h2, h3, p {
             padding: 8px;
             text-align: center;
         }
-        h2, h3, p {
-            text-align: center;
+        body a {
+            color: black;
+            text-decoration: none; /* Optional: Remove underline */
         }
-   body a {
-    color: black;
-    text-decoration: none; /* Optional: Remove underline */
-}
+        body a:hover {
+            color: darkviolet; /* Optional: Change color on hover */
+        }
 
-body a:hover {
-    color: darkviolet; /* Optional: Change color on hover */
-}
+    </style>
+    <script>
+        function searchBooks() {
+            var input = document.getElementById("searchBox");
+            var filter = input.value.toLowerCase();
+            var table = document.getElementById("booksTable");
+            var tr = table.getElementsByTagName("tr");
 
-</style>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="portal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <title>User Portal</title>
+            for (var i = 1; i < tr.length; i++) {
+                tr[i].classList.remove("highlight");
+                var td = tr[i].getElementsByTagName("td");
+                var matched = false;
+                for (var j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        if (td[j].innerText.toLowerCase().indexOf(filter) > -1) {
+                            matched = true;
+                        }
+                    }
+                }
+                if (matched) {
+                    tr[i].style.display = "";
+                    tr[i].classList.add("highlight");
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
-
 <body>
 <div class="sidebar">
     <div class="logo">
@@ -70,11 +90,6 @@ body a:hover {
                     <i class="fas fa-book"></i>  <span>Borrowed Books</span>
                 </a>
             </li>
-<!--            <li>-->
-<!--                <a href="#">-->
-<!--                    <i class="fas fa-exchange-alt"></i>  <span>Return Books</span>-->
-<!--                </a>-->
-<!--            </li>-->
             <li>
                 <a href="help.html">
                     <i class="fas fa-question-circle"></i>  <span>Help</span>
@@ -96,28 +111,25 @@ body a:hover {
 <div class="main--content">
     <div class="header--wrapper">
         <div class="header--title">
-
             <h2>Explore Books</h2>
         </div>
         <div class="user--info">
             <div class="search--box">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search">
+                <input id="searchBox" type="text" placeholder="Search" onkeyup="searchBooks()">
             </div>
             <img src="./images/emptyprofile.jpg">
         </div>
     </div>
 
-    <table class="table">
-        <h2>Availabe Books</h2>
+    <table id="booksTable" class="table">
+        <h2>Available Books</h2>
         <thead>
         <tr>
-            <th> ID</th>
+            <th>Author</th>
             <th>Book Name</th>
             <th>Book Category</th>
             <th>Select/Click Book</th>
-
-
         </tr>
         </thead>
         <tbody>
@@ -125,33 +137,12 @@ body a:hover {
             <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
             <td th:text="${book.category}"></td>
-
             <td>
                 <a th:id="'borrow_' + ${book.id}" th:text="${book.title}" th:href="@{'/book/borrow?bookId=' + ${book.id}}"></a>
             </td>
-
         </tr>
-
         </tbody>
     </table>
-
-    <!-- Borrow and return forms -->
-<!--    <form th:action="@{/books/borrow}" method="post">-->
-<!--        <input type="text" name="bookId" placeholder="Book ID" required>-->
-<!--        <button type="submit">Borrow</button>-->
-<!--    </form>-->
-
-<!--    <form th:action="@{/user/books/return}" method="post">-->
-<!--        <input type="text" name="bookId" placeholder="Book ID" required>-->
-<!--        <button type="submit">Return</button>-->
-<!--    </form>-->
-
-    <!-- Logout button -->
-<!--    <form th:action="@{/logout}" method="get">-->
-<!--        <button type="submit">Logout</button>-->
-<!--    </form>-->
 </div>
 </body>
-
-
 </html>
