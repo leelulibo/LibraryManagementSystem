@@ -4,38 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to YourApp</title>
-    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
+    <style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #E7F2F8; /* Background color for the rest of the page */
+      position: relative; /* Ensure the ::before pseudo-element is positioned relative to the body */
+  }
+        .container {
+    text-align: center;
+    color: #333;
+    padding: 20px;
+    z-index: 1;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top:150px;
+}
+          .faq {
+              text-align: center;
+          }
+          footer {
+      background-color: #3A596F;
+      color: white;
+      padding: 15px 5px;
+      text-align: center;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: auto;
+  }
 
+  footer div {
+      margin: 0 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+
+  footer i {
+      margin-right: 5px;
+  }
+          body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      background-image: url('land.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+  }
+h1 {
+    margin-bottom: 100px;
+}
+
+p  {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: -30px;
+    margin-left: 60px;
+}
+h3 {  margin-top: 5px;
+        margin-left: 30px;
+}
+    </style>
+</head>
 <body>
 
-<div class="container">
-</div>
-<div>
-    <h1>FAQ: Common Issues and Solutions </h1>
+<div class="container faq">
+    <h1>FAQ: Common Issues and Solutions</h1>
     <p>
         <strong>I can't log in to my account. What should I do?</strong><br>
-        Solution: Ensure you are using the correct email address and password. If you still can’t log in, try resetting your password. If the problem persists, contact support at [support email or phone number].
+        Solution: Ensure you are using the correct email address and password. If you still can’t log in, try resetting your password. If the problem persists, contact support at our email or phone number.
     </p>
+    <br>
     <p>
         <strong>I can't find a book I'm looking for.</strong><br>
         Solution: Use the search bar to enter the title, author, or ISBN of the book. If the book is not in the catalog,
     </p>
+    <br>
     <p>
         <strong>How do I pay my fines?</strong><br>
         Solution: To pay a fine you will need to go to the E-learning community library for a librarian to help.
     </p>
+    <br>
     <p>
         <strong>The website is not displaying correctly on my device.</strong><br>
         Solution: Ensure your browser is up to date. Clear your browser’s cache and cookies. Try accessing the site using a different browser. If the problem continues, contact technical support.
     </p>
 </div>
+
 <footer>
     <div class="contact">
         <h3><i class="fas fa-phone"></i> Contact us:</h3>
-        <h3> Phone: +27 793 947 502</h3>
-        <h3><i class="far fa-envelope"></i> Email: bookunity@library.co.za</h3>
+        <h3>Phone: +27 793 947 502</h3>
+        <h3><i class="fas fa-envelope"></i> Email: elearning@library.co.za</h3>
     </div>
     <div class="address">
         <h3><i class="fas fa-map-marker-alt"></i> Address:</h3>
@@ -43,10 +118,11 @@
         <h3>Cape Town 7925</h3>
     </div>
     <div class="opening">
-        <h3><i class="far fa-clock"></i> Opening Hours:</h3>
+        <h3><i class="fas fa-clock"></i> Opening Hours:</h3>
         <h3>Mon-Fri: 9am-5pm</h3>
         <h3>Public Holidays & weekends: Closed</h3>
     </div>
 </footer>
+
 </body>
 </html>

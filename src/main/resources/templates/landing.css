@@ -1,11 +1,15 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center content vertically */
-    min-height: 150vh;
+    justify-content: center;
     background-color: #E7F2F8; /* Background color for the rest of the page */
     position: relative; /* Ensure the ::before pseudo-element is positioned relative to the body */
 }
@@ -13,28 +17,30 @@ body {
 .container {
     text-align: center;
     color: #333;
-    padding: 20px; /* Adjust padding for better spacing */
-    z-index: 1; /* Ensure the container content is above the background image */
-    max-width: 800px; /* Set a maximum width for the container */
-    background-color: rgba(255, 255, 255, 0.9); /* Optional: Add a slight background to make text more readable */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better separation */
-    border-radius: 10px; /* Optional: Add rounded corners */
+    padding: 20px;
+    z-index: 1;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top:150px;
 }
 
 h1 {
     margin-bottom: 30px;
 }
 
-p {
+p  {
     font-size: 18px;
-    line-height: 1.6; /* Improve readability */
-    margin-bottom: 20px; /* Add space below the paragraph */
-    margin-left:15%;
-
+    line-height: 1.6;
+    margin-top: -30px;
+    margin-left: 150px;
+}
+h3 {  margin-top: 5px;
+        margin-left: 30px;
 }
 p::after {
-    content: " 😊"; /* Add the smiling emoji after the text */
-    position: absolute; /* Position the emoji absolutely */
+    content: " 😊";
 }
 
 .buttons {
@@ -57,26 +63,26 @@ p::after {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #3A596F;
 }
 
-/* Add this rule to handle the background image at the top */
 body::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 300px; /* Adjust this height as needed */
-    background-image: url('land.jpg'); /* Adjust the path as per your directory structure */
+    height: 300px;
+    background-image: url('land.jpg');
     background-size: cover;
     background-position: center;
-    z-index: -1; /* Ensure it stays behind other content */
+    z-index: -1;
 }
+
 footer {
     background-color: #3A596F;
     color: white;
-    padding: 20px;
+    padding: 100px 5px;
     text-align: center;
     width: 100%;
     max-height: 150px;
@@ -84,6 +90,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
 }
 
 footer div {
@@ -92,6 +99,7 @@ footer div {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 footer i {
     margin-right: 5px;
 }
