@@ -110,18 +110,18 @@
         document.getElementById('emailError').textContent = '';
         document.getElementById('passwordError').textContent = '';
 
-        // Validate email
+        // Get form values
         const email = document.getElementById('email').value;
-        const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-        if (!emailPattern.test(email)) {
-            document.getElementById('emailError').textContent = 'Please enter a valid email address';
+        const password = document.getElementById('password').value;
+
+        // Validate email and password
+        if (email !== 'admin@elearning.com') {
+            document.getElementById('emailError').textContent = 'Invalid email address';
             valid = false;
         }
 
-        // Validate password
-        const password = document.getElementById('password').value;
-        if (password.trim() === '') {
-            document.getElementById('passwordError').textContent = 'Password is required';
+        if (password !== 'Admin2024') {
+            document.getElementById('passwordError').textContent = 'Invalid password';
             valid = false;
         }
 
