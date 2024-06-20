@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Adminlogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Adminlogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/landing.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,6 +59,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\CAPACITI\LibraryManagementSystem\Library\src\main\resources\templates" />
       <recent name="C:\Users\CAPACITI\Documents\Library-updated[1]\Library\src\main\resources\templates" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.yourpackage.servlets" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718877386767</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated">
+      <option name="closed" value="true" />
+      <created>1718881828366</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718881828366</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
