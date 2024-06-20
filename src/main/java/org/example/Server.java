@@ -48,7 +48,7 @@ public class Server {
             config.addStaticFiles(STATIC_FILES_DIR, Location.CLASSPATH);
 //            config.accessManager(accessManager());
             config.sessionHandler(sessionHandler());
-        });
+    });
 
         ServiceRegistry.configure(UserDAO.class, new UserDAOImpl());
         ServiceRegistry.configure(BookDAO.class, new BookDAOImpl());
@@ -84,9 +84,19 @@ public class Server {
         User user2 = new User("user2@example.com", "User Two");
         Stream.of(user1, user2).forEach(userDAO::saveUser);
 
-        Book book1 = new Book("Fictional Book 1", "Author A", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
-        Book book2 = new Book("Non-Fictional Book 1", "Author B", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
-        Stream.of(book1, book2).forEach(bookDAO::saveBook);
+        Book book1 = new Book("Hamlet", "William Shakespeare", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book2 = new Book("Romeo & Juliet", "William Shakespeare", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book3 = new Book("Holly", "Stephen King", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book4 = new Book("Misery", "Stephen King", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+        Book book5 = new Book("Halowe'en Party", "Agatha Christie", LocalDate.of(2020, 1, 1), BookCategory.FICTIONAL);
+
+        Book book6 = new Book("Becoming", "Michelle Obama", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book7 = new Book("The Light We Carry", "Michelle Obama", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book8 = new Book("A Brief History Of Time", "Stephen Hawking", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book9 = new Book("The Grand Design", "Stephen Hawking.", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+        Book book10 = new Book("I Know Why The Caged Bird", "Maya Angelou", LocalDate.of(2018, 5, 20), BookCategory.NON_FICTIONAL);
+
+        Stream.of(book1, book2, book3,book4,book5,book6,book7,book8,book9,book10).forEach(bookDAO::saveBook);
     }
 
     private Javalin configureExceptionsPage() {
@@ -144,106 +154,106 @@ public class Server {
         return templateEngine;
     }
 
-    public static class Routes {
-        public static final String LOGIN_PAGE = "/login";
-        public static final String LOGIN_ACTION = "/login-action";
-        public static final String REGISTER_ACTION = "/register-action";
-        public static final String BOOKS = "/books";
-        public static final String REGISTER = "/register";
-
-
-        public static void configure(Server server) {
-            server.routes(() -> {
-                io.javalin.apibuilder.ApiBuilder.get(BOOKS, Routes::view);
-                io.javalin.apibuilder.ApiBuilder.post("/books/borrow", Routes::borrowBook);
-                io.javalin.apibuilder.ApiBuilder.post("/books/return/{id}", Routes::returnBook);
-                io.javalin.apibuilder.ApiBuilder.get(LOGIN_PAGE, Routes::showLoginPage);
-                io.javalin.apibuilder.ApiBuilder.post(LOGIN_ACTION, Routes::login);
-                io.javalin.apibuilder.ApiBuilder.post(REGISTER_ACTION, Routes::register);
-                io.javalin.apibuilder.ApiBuilder.get(REGISTER, Routes::showRegister);
-
-
-            });
-        }
-
-        private static void showRegister(Context context) {
-            context.render("register.html");
-        }
-
-        private static void view(Context ctx) {
-            BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
-            Map<String, Object> viewModel = Map.of(
-                    "books", bookDAO.getAllBooks()
-            );
-            ctx.render("books.html", viewModel);
-
-        }
-
-        private static void borrowBook(Context ctx) {
-            BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
-            UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
-
-            UUID bookId = UUID.fromString(ctx.formParam("bookId"));
-            String userEmail = ctx.formParam("userEmail");
-
-            Book book = bookDAO.findBookById(bookId);
-            User user = userDAO.findUserByEmail(userEmail).orElse(null);
-
-            if (book.isAvailable()) {
-                book.borrowBook(user, LocalDate.now(), LocalDate.now().plusWeeks(2));
-                ctx.status(204);
-            } else {
-                ctx.status(400).result("Book is already borrowed.");
-            }
-        }
-
-        private static void returnBook(Context ctx) {
-            BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
-            UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
-
-            UUID bookId = UUID.fromString(ctx.pathParam("id"));
-            String userEmail = ctx.formParam("userEmail");
-
-            Book book = bookDAO.findBookById(bookId);
-            User user = userDAO.findUserByEmail(userEmail).orElse(null);
-
-            book.returnBook(book.listOfBorrowRecords().stream()
-                    .filter(br -> br.getUser().equals(user))
-                    .findFirst()
-                    .get().getId(), user, LocalDate.now());
-
-            ctx.status(204);
-        }
-
-        private static void showLoginPage(Context ctx) {
-            ctx.redirect("login.html");
-        }
-
-        private static void login(Context ctx) {
-            UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
-            String email = ctx.formParam("email");
-            User user = userDAO.findUserByEmail(email).orElse(null);
-
-            if (user != null) {
-                ctx.sessionAttribute(SESSION_USER_KEY, user);
-                ctx.redirect(BOOKS); // Redirect to the books page after successful login
-            } else {
-                ctx.status(401).result("Invalid email.");
-            }
-        }
-
-        private static void register(Context ctx) {
-            String email = ctx.formParam("username");
-            String password = ctx.formParam("password");
-            String confirmPassword = ctx.formParam("confirmPassword");
-
-            System.out.println("Email: " + email);
-            System.out.println("Password: " + password);
-
-            ctx.redirect("/login");
-        }
-
-
-
-    }
+//    public static class Routes {
+//        public static final String LOGIN_PAGE = "/login";
+//        public static final String LOGIN_ACTION = "/login-action";
+//        public static final String REGISTER_ACTION = "/register-action";
+//        public static final String BOOKS = "/books";
+//        public static final String REGISTER = "/register";
+//
+//
+//        public static void configure(Server server) {
+//            server.routes(() -> {
+//                io.javalin.apibuilder.ApiBuilder.get(BOOKS, Routes::view);
+//                io.javalin.apibuilder.ApiBuilder.post("/books/borrow", Routes::borrowBook);
+//                io.javalin.apibuilder.ApiBuilder.post("/books/return/{id}", Routes::returnBook);
+//                io.javalin.apibuilder.ApiBuilder.get(LOGIN_PAGE, Routes::showLoginPage);
+//                io.javalin.apibuilder.ApiBuilder.post(LOGIN_ACTION, Routes::login);
+//                io.javalin.apibuilder.ApiBuilder.post(REGISTER_ACTION, Routes::register);
+//                io.javalin.apibuilder.ApiBuilder.get(REGISTER, Routes::showRegister);
+//
+//
+//            });
+//        }
+//
+//        private static void showRegister(Context context) {
+//            context.render("register.html");
+//        }
+//
+//        private static void view(Context ctx) {
+//            BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
+//            Map<String, Object> viewModel = Map.of(
+//                    "books", bookDAO.getAllBooks()
+//            );
+//            ctx.render("books.html", viewModel);
+//
+//        }
+//
+//        private static void borrowBook(Context ctx) {
+//            BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
+//            UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
+//
+//            UUID bookId = UUID.fromString(ctx.formParam("bookId"));
+//            String userEmail = ctx.formParam("userEmail");
+//
+//            Book book = bookDAO.findBookById(bookId);
+//            User user = userDAO.findUserByEmail(userEmail).orElse(null);
+//
+//            if (book.isAvailable()) {
+//                book.borrowBook(user, LocalDate.now(), LocalDate.now().plusWeeks(2));
+//                ctx.status(204);
+//            } else {
+//                ctx.status(400).result("Book is already borrowed.");
+//            }
+//        }
+//
+//        private static void returnBook(Context ctx) {
+//            BookDAO bookDAO = ServiceRegistry.lookup(BookDAO.class);
+//            UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
+//
+//            UUID bookId = UUID.fromString(ctx.pathParam("id"));
+//            String userEmail = ctx.formParam("userEmail");
+//
+//            Book book = bookDAO.findBookById(bookId);
+//            User user = userDAO.findUserByEmail(userEmail).orElse(null);
+//
+//            book.returnBook(book.listOfBorrowRecords().stream()
+//                    .filter(br -> br.getUser().equals(user))
+//                    .findFirst()
+//                    .get().getId(), user, LocalDate.now());
+//
+//            ctx.status(204);
+//        }
+//
+//        private static void showLoginPage(Context ctx) {
+//            ctx.redirect("login.html");
+//        }
+//
+//        private static void login(Context ctx) {
+//            UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
+//            String email = ctx.formParam("email");
+//            User user = userDAO.findUserByEmail(email).orElse(null);
+//
+//            if (user != null) {
+//                ctx.sessionAttribute(SESSION_USER_KEY, user);
+//                ctx.redirect(BOOKS); // Redirect to the books page after successful login
+//            } else {
+//                ctx.status(401).result("Invalid email.");
+//            }
+//        }
+//
+//        private static void register(Context ctx) {
+//            String email = ctx.formParam("username");
+//            String password = ctx.formParam("password");
+//            String confirmPassword = ctx.formParam("confirmPassword");
+//
+//            System.out.println("Email: " + email);
+//            System.out.println("Password: " + password);
+//
+//            ctx.redirect("/login");
+//        }
+//
+//
+//
+//    }
 }

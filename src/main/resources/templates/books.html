@@ -7,6 +7,92 @@
     <link rel="stylesheet" href="portal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <title>User Portal</title>
+    <style>
+        h2, h3, p {
+            text-align: center;
+        }
+        .table{
+            text-align: center;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        section {
+            border: 2px solid #000;
+            padding: 20px;
+            background-color: #f9f9f9;
+            width: 80%;
+            max-width: 600px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        body a {
+            color: black;
+            text-decoration: none; /* Optional: Remove underline */
+        }
+        body a:hover {
+            color: darkviolet; /* Optional: Change color on hover */
+        }
+
+    </style>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+    var fileUpload = document.getElementById("fileUpload");
+    var profilePicture = document.getElementById("profilePicture");
+
+    fileUpload.addEventListener("change", function(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            profilePicture.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    });
+});
+
+
+        function searchBooks() {
+            var input = document.getElementById("searchBox");
+            var filter = input.value.toLowerCase();
+            var table = document.getElementById("booksTable");
+            var tr = table.getElementsByTagName("tr");
+
+            for (var i = 1; i < tr.length; i++) {
+                tr[i].classList.remove("highlight");
+                var td = tr[i].getElementsByTagName("td");
+                var matched = false;
+                for (var j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        if (td[j].innerText.toLowerCase().indexOf(filter) > -1) {
+                            matched = true;
+                        }
+                    }
+                }
+                if (matched) {
+                    tr[i].style.display = "";
+                    tr[i].classList.add("highlight");
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="sidebar">
@@ -18,13 +104,8 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-book"></i>  <span>Browse Books</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-exchange-alt"></i>  <span>Borrowed Books</span>
+                <a href="bookHistory.html">
+                    <i class="fas fa-book"></i>  <span>Borrowed Books</span>
                 </a>
             </li>
             <li>
@@ -38,7 +119,7 @@
                 </a>
             </li>
             <li class="logout">
-                <a href="#">
+                <a href="index.html">
                     <i class="fas fa-sign-out-alt"></i>  <span>Sign Out</span>
                 </a>
             </li>
@@ -48,49 +129,44 @@
 <div class="main--content">
     <div class="header--wrapper">
         <div class="header--title">
-
-            <h2>Dashboard</h2>
+            <h2>Explore Books</h2>
         </div>
         <div class="user--info">
             <div class="search--box">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search">
+                <input id="searchBox" type="text" placeholder="Search" onkeyup="searchBooks()">
             </div>
-            <img src="./images/emptyprofile.jpg">
+            <!-- Profile Picture with File Upload -->
+            <label for="fileUpload">
+                <img id="profilePicture" src="./images/emptyprofile.jpg" alt="Profile Picture">
+            </label>
+            <input type="file" id="fileUpload" style="display: none;">
         </div>
+
+
     </div>
 
-    <table>
+    <table id="booksTable" class="table">
+        <h2>Available Books</h2>
         <thead>
         <tr>
-            <th> ID</th>
+            <th>Author</th>
             <th>Book Name</th>
-            <th>Is Available? </th>
+            <th>Book Category</th>
+            <th>Select/Click Book</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="book : ${books}">
-            <td th:text="${book.id}"></td>
+            <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
-            <td> <button th:if="${book.available}" type="button">Borrow</button></td>
+            <td th:text="${book.category}"></td>
+            <td>
+                <a th:id="'borrow_' + ${book.id}" th:text="${book.title}" th:href="@{'/book/show?bookId=' + ${book.id}}"></a>
+            </td>
         </tr>
         </tbody>
     </table>
-    <!-- Borrow and return forms -->
-    <form th:action="@{/user/books/borrow}" method="post">
-        <input type="text" name="bookId" placeholder="Book ID" required>
-        <button type="submit">Borrow</button>
-    </form>
-
-    <form th:action="@{/user/books/return}" method="post">
-        <input type="text" name="bookId" placeholder="Book ID" required>
-        <button type="submit">Return</button>
-    </form>
-
-    <!-- Logout button -->
-    <form th:action="@{/logout}" method="get">
-        <button type="submit">Logout</button>
-    </form>
 </div>
 </body>
 </html>

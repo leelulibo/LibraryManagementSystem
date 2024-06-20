@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="footer">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/setting.css" afterDir="false" />
+    <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/help.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/help.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/library/controller/BooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bookHistory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/books.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/borrow.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="CSS File" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -33,7 +35,6 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2i0wtPq1pdjLfZHA82YxQHLiZpe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -43,11 +44,10 @@
     &quot;Application.Server.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Ayanda&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Lulibo&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/CAPACITI/Documents/Library-updated[1]/Library/src/main/resources/templates&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/CAPACITI/LibraryManagementSystem/Library/src/main/resources/templates&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -56,10 +56,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CAPACITI\LibraryManagementSystem\Library\src\main\resources\templates" />
       <recent name="C:\Users\CAPACITI\Documents\Library-updated[1]\Library\src\main\resources\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mdudu\IdeaProjects\LibraryManagementSystem\src\main\resources\templates\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -93,45 +91,11 @@
       <option name="presentableId" value="Default" />
       <updated>1718641017716</updated>
     </task>
-    <task id="LOCAL-00001" summary="login, setting page">
-      <option name="closed" value="true" />
-      <created>1718809630977</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1718809630977</updated>
-    </task>
-    <task id="LOCAL-00002" summary="footer">
-      <option name="closed" value="true" />
-      <created>1718809843869</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1718809843869</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="dependencySupport" implementationName="executable:docker" />
     <option featureType="dependencySupport" implementationName="executable:kubectl" />
     <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="login" />
-    <MESSAGE value="login, setting page" />
-    <MESSAGE value="footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="footer" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Server.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

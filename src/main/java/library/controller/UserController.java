@@ -7,36 +7,39 @@ import org.example.Server;
 import org.example.ServiceRegistry;
 import org.example.Routes;
 
+import java.util.Objects;
+
 public class UserController {
 
     private static final UserDAO userDAO = ServiceRegistry.lookup(UserDAO.class);
 
     public static final Handler logout = ctx -> {
         ctx.sessionAttribute(Server.SESSION_USER_KEY, null);
-        ctx.redirect(Routes.LOGIN_ACTION);
+        ctx.redirect(Routes.LOGIN_PAGE);
     };
 
+
+//    public static final Handler logout = ctx -> {
+//        ctx.sessionAttribute(Server.SESSION_USER_KEY, null);
+//        ctx.redirect(Routes.LOGIN_ACTION);
+//    };
+
+    private static final UserDAO personDAO = ServiceRegistry.lookup(UserDAO.class);
     public static final Handler login = context -> {
-        String email = context.formParam("username"); // Assuming "username" matches your form input name
+        String email = context.formParamAsClass("email", String.class)
+                .check(Objects::nonNull, "Email is required")
+                .get();
         String password = context.formParam("password");
 
+        context.sessionAttribute(Server.SESSION_USER_KEY, userDAO);
+        context.redirect(Routes.BOOKS);
 
-        if (email == null || email.isEmpty()) {
-            context.status(400).result("Email is required");
-            return;
-        }
-
-
-        User user = userDAO.findUserByEmail(email)
-                .orElseGet(() -> {
-                    User newUser = new User(email, "Default User Name"); // Adjust default user name
-                    userDAO.saveUser(newUser);
-                    return newUser;
-                });
-
-        context.sessionAttribute(Server.SESSION_USER_KEY, user);
-        context.redirect(Routes.BOOKS); // Adjust the redirect route as necessary
-    };
+        User user = new User(email, password);
+        User person = (new User(user.toString(),password));
+        context.sessionAttribute(Server.SESSION_USER_KEY, person);
+        context.redirect(Routes.BOOKS);
+        };
+//    };
 
     // TODO Implement user registration
     public static final Handler register = context -> {

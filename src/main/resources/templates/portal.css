@@ -10,7 +10,6 @@
 }
 body {
       display: flex;
-      background-image: url("purplelibrary.jpg");
 }
 
 .sidebar {
@@ -27,7 +26,7 @@ body {
     background: rgba(113, 99, 186, 255);
 }
 .sidebar:hover{
-    width:240px;
+    width:300px;
     transition:0.5s;
 }
 .logo {
@@ -127,4 +126,8 @@ body {
 }
 .search--box i:over{
     transform: scale(1.2);
+}
+.borrowBook{
+    border-radius:50px;
+    text-align:centre;
 }

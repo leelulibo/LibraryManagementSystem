@@ -2,171 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        .login-container {
-            width: 350px;
-            margin: 100px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .toggle-button-container {
-            text-align: center;
-            margin-bottom: 40px;
-
-        }
-        .toggle-button {
-            position: relative;
-
-            height: 40px;
-            background-color:#BFD7ED;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5px;
-            box-sizing: border-box;
-
-        }
-        .toggle-button::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 26px;
-            background-color: #fff;
-            border-radius: 30%;
-            top: 10px;
-            left: 50px;
-            transition: transform 0.3s;
-        }
-        .toggle-button.active {
-            background-color: #BFD7ED;
-        }
-        .toggle-button.active::after {
-            transform: translateX(180px);
-        }
-        .toggle-text {
-            width: 50%;
-            text-align: center;
-            font-size: 14px;
-            color: black;
-            z-index: 1;
-        }
-        .toggle-text.login {
-            color: #000;
-        }
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        .login-container input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        .login-container input[type="submit"]:hover {
-            background-color: #3A596F;
-        }
-        .forgot-password {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .social-icons {
-            text-align: center;
-        }
-        .social-icons a {
-            margin-right: 10px;
-        }
-        .social-icons a:last-child {
-            margin-right: 0;
-        }
-        .password-container {
-            position: relative;
-        }
-        #toggle-password {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-        #toggle-password:hover {
-            color: blue;
-        }
-    </style>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="login-container">
-    <div class="toggle-button-container">
-        <div id="toggle-button" class="toggle-button">
-            <div class="toggle-text login">Login</div>
-            <div class="toggle-text admin">Admin</div>
+<div class="container">
+    <h2>Login</h2>
+    <form method="post" action="/login-action" enctype="application/x-www-form-urlencoded">
+        <div class="form-group">
+            <label for="email">Username:</label>
+            <input name="email" id="email" type="email" autofocus required>
         </div>
-    </div>
-    <form action="#" method="post">
-        <input type="text" name="username" placeholder="Username" required>
-
-        <div class="password-container">
-            <input type="password" id="password-input" name="password" placeholder="Password" required>
-            <i class="fa fa-eye-slash" id="toggle-password"></i>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
         </div>
-
-        <input type="submit" value="Login">
+        <input id="submit" type="submit" value="Login"/>
+        <a href="/books">User Portal</a>
     </form>
-    <div class="forgot-password">
-        <a href="#">Forgot Password?</a>
-    </div>
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
 </div>
-
-<script>
-    document.getElementById('toggle-button').addEventListener('click', function() {
-        this.classList.toggle('active');
-        var submitButton = document.querySelector('input[type="submit"]');
-        if (this.classList.contains('active')) {
-            submitButton.value = "Admin";
-        } else {
-            submitButton.value = "Login";
-        }
-    });
-
-    document.getElementById('toggle-password').addEventListener('click', function() {
-        var passwordInput = document.getElementById('password-input');
-        var toggleIcon = this;
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleIcon.classList.remove('fa-eye-slash');
-            toggleIcon.classList.add('fa-eye');
-        } else {
-            passwordInput.type = 'password';
-            toggleIcon.classList.remove('fa-eye');
-            toggleIcon.classList.add('fa-eye-slash');
-        }
-    });
-</script>
-
 </body>
 </html>

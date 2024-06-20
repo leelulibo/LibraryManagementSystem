@@ -6,7 +6,13 @@ import java.util.Collection;
 import java.util.Optional;
 
 public interface UserDAO {
-    void saveUser(User user);
+
     Collection<User> getAllUsers();
-    Optional<User> findUserByEmail(String email); // Use Optional
+    Optional<User> findUserByEmail(String email);
+    void saveUser(User user);
+// Use Optional
 }
+//public interface PersonDAO {
+//    Optional<Person> findPersonByEmail(String email);
+//    Person savePerson(Person person);
+//}
