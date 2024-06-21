@@ -1,0 +1,33 @@
+
+<!--WORK HERE ADMIN PORTAL SHOULD ADD USER, VIEW WHO BORROWED BOOKS/RECIEVE THE USERS WHO BORROWED BOOKS-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Portal</title>
+</head>
+<body>
+<h1>Admin Portal</h1>
+
+<!-- Display list of users -->
+<ul>
+    <li th:each="user : ${users}">
+        <span th:text="${user.username}"></span>
+        <button type="button">Delete</button>
+    </li>
+</ul>
+
+<!-- Add user form -->
+<form th:action="@{/admin/users}" method="post">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Add User</button>
+</form>
+
+<!-- Logout button -->
+<form th:action="@{/logout}" method="get">
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style>
+        .line {
+            background-color: #100;
+            height: 1px;
+        }
+
+    </style>
+    <title>Borrow Books</title>
+</head>
+<body>
+<section class="borrowBook">
+    <h2>Borrow a Book</h2>
+    <h3>Full Description of the Book</h3>
+    <p th:text="${book.title}"></p>
+    <p th:text="${book.author}"></p>
+    <p th:if="${book.isAvailable}">Book is available</p>
+    <div th:if="${book.isAvailable}">
+        <form th:action="@{/book/borrow}" method="post">
+            <input type="hidden" name="bookId" th:value="${book.id}" />
+            <label for="userEmail">User Email:</label>
+            <input type="email" id="userEmail" name="userEmail" required autofocus />
+            <button  action="/submit-action">Borrow Book</button>
+        </form>
+    </div>
+    <div th:unless="${book.isAvailable}">
+        <p>This book is currently unavailable.</p>
+    </div>
+</section>
+</body>
+</html>

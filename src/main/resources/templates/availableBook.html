@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <style>
+        .line {
+            background-color: #100;
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="contents">
+    <section class="bookList">
+        <h2>Fictional Books</h2>
+
+        <p id="no_fictional_books" th:if="${#lists.isEmpty(fictionalBooks)}">No fictional books available!</p>
+
+        <div id="fictional_books" th:unless="${#lists.isEmpty(fictionalBooks)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Available Copies</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book : ${fictionalBooks}">
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.isbn}"></td>
+                    <td th:text="${book.availableCopies}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Non-Fictional Books</h2>
+
+        <p id="no_non_fictional_books" th:if="${#lists.isEmpty(nonFictionalBooks)}">No non-fictional books available!</p>
+
+        <div id="non_fictional_books" th:unless="${#lists.isEmpty(nonFictionalBooks)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Available Copies</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book : ${nonFictionalBooks}">
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.isbn}"></td>
+                    <td th:text="${book.availableCopies}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+</div>
+
+</body>
+</html>
