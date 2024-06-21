@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings</title>
+    <link rel="stylesheet" href="setting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>User Settings</h1>
+    <div class="forms-container">
+        <!-- Update Profile Section -->
+        <section id="update-profile">
+            <h2>Update Profile</h2>
+            <form id="profileForm" action="/user/settings/profile" method="post">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" value="current_username" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" value="current_email@example.com" required><br><br>
+
+                <label for="phone">Phone:</label><br>
+                <input type="tel" id="phone" name="phone" value="current_phone"><br><br>
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+
+        <!-- Change Password Section -->
+        <section id="change-password">
+            <h2>Change Password</h2>
+            <form id="passwordForm" action="/user/settings/password" method="post">
+                <label for="currentPassword">Current Password:</label><br>
+                <input type="password" id="currentPassword" name="currentPassword" required><br><br>
+
+                <label for="newPassword">New Password:</label><br>
+                <input type="password" id="newPassword" name="newPassword" required><br><br>
+
+                <label for="confirmPassword">Confirm New Password:</label><br>
+                <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+                <button type="submit">Change Password</button>
+            </form>
+        </section>
+
+        <!-- Notification Preferences Section -->
+        <section id="notification-preferences">
+            <h2>Notification Preferences</h2>
+            <form id="notificationForm" action="/user/settings/notifications" method="post">
+                <label>
+                    <input type="checkbox" name="emailNotifications" checked>
+                    Email Notifications
+                </label><br><br>
+
+                <label>
+                    <input type="checkbox" name="smsNotifications">
+                    SMS Notifications
+                </label><br><br>
+
+                <label>
+                    <input type="checkbox" name="pushNotifications" checked>
+                    Push Notifications
+                </label><br><br>
+
+                <button type="submit" class="btn_notif">Save Preferences</button>
+            </form>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <div class="contact">
+        <h3><i class="fas fa-phone"></i> Contact us:</h3>
+        <h3> Phone: +27 793 947 502</h3>
+        <h3><i class="far fa-envelope"></i> Email: elearning@library.co.za</h3>
+    </div>
+    <div class="address">
+        <h3><i class="fas fa-map-marker-alt"></i> Address:</h3>
+        <h3>97 Durham Ave, Salt River</h3>
+        <h3>Cape Town 7925</h3>
+    </div>
+    <div class="opening">
+        <h3><i class="far fa-clock"></i> Opening Hours:</h3>
+        <h3>Mon-Fri: 9am-5pm</h3>
+        <h3>Public Holidays & weekends: Closed</h3>
+    </div>
+</footer>
+</body>
+</html>

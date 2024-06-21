@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #5cb85c;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #3A596F;
+    }
+
+    a {
+        display: block;
+        margin-top: 15px;
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+    }
+</style>
+<body>
+<div class="container">
+    <h2>Login Admin</h2>
+    <form id="loginForm" method="post">
+        <div class="form-group">
+            <label for="email">Username:</label>
+            <input name="email" id="email" type="email" required>
+            <small id="emailError" class="error-message"></small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <small id="passwordError" class="error-message"></small>
+        </div>
+        <input id="submit" type="submit" value="Login"/>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        let valid = true;
+
+        // Clear previous error messages
+        document.getElementById('emailError').textContent = '';
+        document.getElementById('passwordError').textContent = '';
+
+        // Get form values
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Validate email and password
+        if (email !== 'admin@elearning.com') {
+            document.getElementById('emailError').textContent = 'Invalid email address';
+            valid = false;
+        }
+
+        if (password !== 'Admin2024') {
+            document.getElementById('passwordError').textContent = 'Invalid password';
+            valid = false;
+        }
+
+        if (valid) {
+            event.preventDefault();
+            window.location.href = 'admin_portal.html';
+        } else {
+            event.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>

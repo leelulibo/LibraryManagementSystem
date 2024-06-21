@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Books</title>
+</head>
+<body>
+<h1>Library Books</h1>
+<ul>
+    <li th:each="book : ${books}">
+        <span th:text="${book.title}"></span> by <span th:text="${book.author}"></span>
+        (Category: <span th:text="${book.category}"></span>)
+        <form th:action="@{/books}" method="post">
+            <input type="hidden" name="bookId" th:value="${book.id}"/>
+            <input type="email" name="userEmail" placeholder="Your email"/>
+            <button type="submit">Borrow</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>

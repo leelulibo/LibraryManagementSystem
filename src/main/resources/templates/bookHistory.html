@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .borrowBook {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .borrowBook h2 {
+            text-align: center;
+        }
+        .borrowBook div {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .borrowBook span {
+            font-weight: bold;
+        }
+        .line {
+            background-color: #100;
+            height: 1px;
+        }
+    </style>
+    <title>Book History</title>
+</head>
+<body>
+<section class="borrowBook">
+
+    <h2>Book History</h2>
+    <div>
+        <span>Author</span>
+        <p th:text="${book.author}"></p>
+    </div>
+    <div>
+        <span>Book Name</span>
+        <p th:text="${book.title}"></p>
+    </div>
+    <div>
+        <span>Return Date</span>
+        <p th:text="${book.publicationDate}"></p>
+    </div>
+    <div>
+        <span>Book Category</span>
+        <p th:text="${book.category}"></p>
+    </div>
+
+</section>
+</body>
+</html>
