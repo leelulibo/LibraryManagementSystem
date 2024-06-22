@@ -4,95 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="portal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <title>User Portal</title>
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/book.css">
+    <!-- JavaScript files -->
+    <script src="js/book.js"></script>
     <style>
-        h2, h3, p {
-            text-align: center;
+        /* Additional CSS styles can be placed here */
+        .edit-btn, .delete-btn {
+            cursor: pointer;
+            color: #007bff; /* Blue color for icons */
+            margin-right: 10px;
         }
-        .table{
-            text-align: center;
+        .edit-btn:hover, .delete-btn:hover {
+            color: #0056b3; /* Darker blue on hover */
         }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        section {
-            border: 2px solid #000;
-            padding: 20px;
+        .dropdown-content {
+            display: none;
+            position: absolute;
             background-color: #f9f9f9;
-            width: 80%;
-            max-width: 600px;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px auto;
-        }
-        th, td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: center;
-        }
-        body a {
+        .dropdown-content a {
             color: black;
-            text-decoration: none; /* Optional: Remove underline */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
         }
-        body a:hover {
-            color: darkviolet; /* Optional: Change color on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
-
     </style>
-    <script>
-
-        document.addEventListener("DOMContentLoaded", function() {
-    var fileUpload = document.getElementById("fileUpload");
-    var profilePicture = document.getElementById("profilePicture");
-
-    fileUpload.addEventListener("change", function(event) {
-        var file = event.target.files[0];
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            profilePicture.src = e.target.result;
-        };
-
-        reader.readAsDataURL(file);
-    });
-});
-
-
-        function searchBooks() {
-            var input = document.getElementById("searchBox");
-            var filter = input.value.toLowerCase();
-            var table = document.getElementById("booksTable");
-            var tr = table.getElementsByTagName("tr");
-
-            for (var i = 1; i < tr.length; i++) {
-                tr[i].classList.remove("highlight");
-                var td = tr[i].getElementsByTagName("td");
-                var matched = false;
-                for (var j = 0; j < td.length; j++) {
-                    if (td[j]) {
-                        if (td[j].innerText.toLowerCase().indexOf(filter) > -1) {
-                            matched = true;
-                        }
-                    }
-                }
-                if (matched) {
-                    tr[i].style.display = "";
-                    tr[i].classList.add("highlight");
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 </head>
 <body>
 <div class="sidebar">
@@ -142,8 +89,6 @@
             </label>
             <input type="file" id="fileUpload" style="display: none;">
         </div>
-
-
     </div>
 
     <table id="booksTable" class="table">
@@ -154,9 +99,30 @@
             <th>Book Name</th>
             <th>Book Category</th>
             <th>Select/Click Book</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
+        <!-- Example book row with edit and delete icons -->
+        <tr>
+            <td>William Shakespeare</td>
+            <td>Hamlet</td>
+            <td>Fictional</td>
+            <td>
+                <a id="borrow_1" href="#">Hamlet</a>
+            </td>
+            <td>
+                <span class="edit-btn" onclick="showDropdown('editDropdown_1')"><i class="fas fa-edit"></i> Edit</span>
+                <span class="delete-btn" onclick="deleteBook(1)"><i class="fas fa-trash-alt"></i> Delete</span>
+                <div id="editDropdown_1" class="dropdown-content">
+                    <a href="#">Condition: Good</a>
+                    <a href="#">Condition: Fair</a>
+                    <a href="#">Condition: Poor</a>
+                    <a href="#">View Borrow History</a>
+                </div>
+            </td>
+        </tr>
+        <!-- Iterate over books using Thymeleaf -->
         <tr th:each="book : ${books}">
             <td th:text="${book.author}"></td>
             <td th:text="${book.title}"></td>
@@ -164,9 +130,36 @@
             <td>
                 <a th:id="'borrow_' + ${book.id}" th:text="${book.title}" th:href="@{'/book/show?bookId=' + ${book.id}}"></a>
             </td>
+            <td>
+                <span class="edit-btn" onclick="showDropdown('editDropdown_${book.id}')"><i class="fas fa-edit"></i> Edit</span>
+                <span class="delete-btn" onclick="deleteBook('${book.id}')"><i class="fas fa-trash-alt"></i> Delete</span>
+                <div id="editDropdown_${book.id}" class="dropdown-content">
+                    <a href="#">Condition: Good</a>
+                    <a href="#">Condition: Fair</a>
+                    <a href="#">Condition: Poor</a>
+                    <a href="#">View Borrow History</a>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
 </div>
 </body>
 </html>
+
+<script>
+    // JavaScript functions for interaction
+    function showDropdown(dropdownId) {
+        var dropdown = document.getElementById(dropdownId);
+        if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+        } else {
+            dropdown.style.display = "block";
+        }
+    }
+
+    function deleteBook(bookId) {
+        // Implement delete functionality here
+        console.log("Deleting book with ID: " + bookId);
+    }
+</script>

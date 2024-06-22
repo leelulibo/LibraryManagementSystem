@@ -49,6 +49,7 @@ body {
 }
  li:hover, .active {
     background: #e0e0e058;
+    width: 100vh;
 }
  a{
     color:#fff;
