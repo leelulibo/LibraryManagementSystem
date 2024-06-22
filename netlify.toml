@@ -1,3 +1,4 @@
 [build]
-  command = "mvn clean package"
+  # Install Maven before running the build
+  command = "apt-get update && apt-get install -y maven && mvn clean package"
   publish = "target/"
