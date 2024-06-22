@@ -1,0 +1,37 @@
+h2, h3, p {
+    text-align: center;
+}
+.table{
+    text-align: center;
+}
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+section {
+    border: 2px solid #000;
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 80%;
+    max-width: 600px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+body a {
+    color: black;
+    text-decoration: none; /* Optional: Remove underline */
+}
+body a:hover {
+    color: darkviolet; /* Optional: Change color on hover */
+}
