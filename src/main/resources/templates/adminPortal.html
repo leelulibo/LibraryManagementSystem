@@ -1,72 +1,457 @@
-<!--<!doctype html>-->
-<!--<html lang="">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <link rel="stylesheet" href="portal.css">-->
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />-->
-<!--    <title>Admin Portal</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="sidebar">-->
-<!--    <div class="logo">-->
-<!--        <ul class="main">-->
-<!--            <li class="active">-->
-<!--                <a href="#">-->
-<!--                    <i class="fas fa-tachometer-alt"></i>-->
-<!--                    <span>Dashboard</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a href="#">-->
-<!--                    <i class="fas fa-chart-bar"></i>-->
-<!--                    <span>Profile</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a href="#">-->
-<!--                    <i class="fas fa-briefcase"></i>-->
-<!--                    <span>Careers</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a href="#">-->
-<!--                    <i class="fas fa-question-circle"></i>-->
-<!--                    <span>FAQ</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a href="#">-->
-<!--                    <i class="fas fa-cog"></i>-->
-<!--                    <span>Settings</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li class="logout">-->
-<!--                <a href="#">-->
-<!--                    <i class="fas fa-sign-out-alt"></i>-->
-<!--                    <span>Sign Out</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div class="main&#45;&#45;content">-->
-<!--    <div class="header&#45;&#45;wrapper">-->
-<!--        <div class="header&#45;&#45;title">-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Side Navigation</title>
+    <link rel="stylesheet" href="adminPortal.css">
+</head>
+<body>
 
-<!--            <h2>Dashboard</h2>-->
-<!--        </div>-->
-<!--        <div class="user&#45;&#45;info">-->
-<!--            <div class="search&#45;&#45;box">-->
-<!--                <i class="fas fa-search"></i>-->
-<!--                <input type="text" placeholder="Search">-->
-<!--            </div>-->
-<!--            <img src="./images/emptyprofile.jpg">-->
-<!--        </div>-->
-<!--    </div>-->
+<div class="sidenav" id="sidenav">
+    <div class="sidebar-header">
+        <img src="logo.png" alt="Library.png" class="logo">
+        <span class="library-name">System Library</span>
+    </div>
+    <a href="#" onclick="openPage('addBook')">Add a book</a>
+    <a href="#" onclick="openPage('listBooks')">List of Books</a>
+    <a href="#" onclick="openPage('issueBook')">Issue Book</a>
+    <a href="#" onclick="openPage('listIssuedBooks')">List Issued Books</a>
+    <a href="#" onclick="openPage('returnBooksToday')">Books to be Returned Today</a>
+    <a href="#" onclick="openPage('manageUsers')">Manage Users</a>
+</div>
 
+<div class="main-content" id="main-content">
+    <h2>Welcome to our Library Management System</h2>
+    <p>Select an option from the sidebar to view more information.</p>
+</div>
 
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+<div id="search-results"></div>
+
+<script>
+    var books = [
+        { isbn: "123456", title: "Java Complete Reference", category: "Non-fiction", quantity: 5, author: "Herbert Schildt" },
+        { isbn: "789012", title: "Head First Java", category: "Non-fiction", quantity: 3, author: "Kathy Sierra" }
+        // Add more books as needed
+    ];
+
+    var users = [
+        { id: "1", name: "John Doe", email: "john@example.com", phone: "123-456-7890", role: "Member" },
+        { id: "2", name: "Jane Smith", email: "jane@example.com", phone: "098-765-4321", role: "Librarian" }
+        // Add more users as needed
+    ];
+
+    function openPage(pageName) {
+        var mainContent = document.getElementById("main-content");
+        switch (pageName) {
+            case 'addBook':
+                loadAddBookForm(mainContent);
+                break;
+            case 'listBooks':
+                loadListBooks(mainContent);
+                break;
+            case 'issueBook':
+                loadIssueBookForm(mainContent);
+                break;
+            case 'listIssuedBooks':
+                loadListIssuedBooks(mainContent);
+                break;
+            case 'returnBooksToday':
+                loadBooksToBeReturnedToday(mainContent);
+                break;
+            case 'manageUsers':
+                loadManageUsers(mainContent);
+                break;
+            default:
+                mainContent.innerHTML = "<h2>Welcome to our Library Management System</h2><p>Select an option from the sidebar to view more information.</p>";
+                break;
+        }
+    }
+
+    function loadAddBookForm(mainContent) {
+        var categories = ["Fiction", "Non-fiction", "Science Fiction", "Fantasy", "Mystery", "Romance"];
+        var categoryOptions = categories.map(function(category) {
+            return `<option value="${category}">${category}</option>`;
+        }).join('');
+
+        mainContent.innerHTML = `
+            <div class="container">
+                <h2>Add a Book</h2>
+                <form id="addBookForm">
+                    <label class="form-label" for="title">Title:</label>
+                    <input type="text" id="title" name="title" class="form-input" required><br>
+
+                    <label class="form-label" for="isbn">ISBN (Book Number):</label>
+                    <input type="text" id="isbn" name="isbn" class="form-input" required><br>
+
+                    <label class="form-label" for="category">Category:</label>
+                    <select id="category" name="category" class="form-select" required>
+                        <option value="" disabled selected>Select or enter a category</option>
+                        <option value="new">Add New</option>
+                        ${categoryOptions}
+                    </select><br>
+
+                    <div id="newCategoryInput" style="display: none;">
+                        <label class="form-label" for="newCategory">New Category:</label>
+                        <input type="text" id="newCategory" name="newCategory" class="form-input" placeholder="Enter New Category"><br>
+                    </div>
+
+                    <label class="form-label" for="authorName">Author Name:</label>
+                    <input type="text" id="authorName" name="authorName" class="form-input" required><br>
+
+                    <label class="form-label" for="authorPhone">Author Phone Number:</label>
+                    <input type="text" id="authorPhone" name="authorPhone" class="form-input" required><br>
+
+                    <button type="submit" class="form-button">Add Book</button>
+                </form>
+            </div>
+        `;
+
+        document.getElementById("category").addEventListener("change", function() {
+            var newCategoryInput = document.getElementById("newCategoryInput");
+            newCategoryInput.style.display = this.value === "new" ? "block" : "none";
+        });
+
+        document.getElementById("addBookForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var title = document.getElementById("title").value;
+            var isbn = document.getElementById("isbn").value;
+            var category = document.getElementById("category").value;
+            if (category === "new") {
+                category = document.getElementById("newCategory").value;
+            }
+            var authorName = document.getElementById("authorName").value;
+            var authorPhone = document.getElementById("authorPhone").value;
+
+            // Simulated: Add book to a list or database
+            var book = { isbn: isbn, title: title, category: category, quantity: 1, author: authorName, authorPhone: authorPhone };
+            books.push(book);
+            console.log("New Book:", book);
+
+            mainContent.innerHTML = "<h2>Book Added Successfully</h2>";
+        });
+    }
+
+    function loadListBooks(mainContent) {
+        mainContent.innerHTML = `
+            <div class="container">
+                <h2>List of Books</h2>
+                <div class="search-container">
+                    <input type="text" id="searchBooksInput" class="form-input" placeholder="Search by title or author">
+                    <button class="form-button" onclick="searchBooks()">Search</button>
+                </div>
+                <table class="results-table" id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Book ISBN</th>
+                            <th>Book Title</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Author</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${generateBooksTable(books)}
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    function loadIssueBookForm(mainContent) {
+        mainContent.innerHTML = `
+            <div class="container" style="position: relative;">
+                <h2>Issue Book</h2>
+
+                <div class="search-container">
+                    <label for="searchBookInput" style="display: inline-block; width: 100px;">Search for Book:</label>
+                    <input type="text" id="searchBookInput" class="form-input" style="width: 200px; margin-right: 10px;" placeholder="Search by title or ISBN">
+                    <select id="searchBookSelect" class="form-select" style="width: 150px;">
+                        <option value="title">Title</option>
+                        <option value="isbn">ISBN</option>
+                    </select>
+                    <button class="form-button" style="margin-left: 10px;">Search</button>
+                </div>
+                <table class="results-table" id="searchResultsBooks">
+                    <thead>
+                        <tr>
+                            <th>Book ISBN</th>
+                            <th>Book Title</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Author</th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResultsBooksBody">
+                    </tbody>
+                </table>
+
+                <div class="search-container" style="margin-top: 20px;">
+                    <label for="searchMemberInput" style="display: inline-block; width: 120px;">Search for Member:</label>
+                    <input type="text" id="searchMemberInput" class="form-input" style="width: 200px; margin-right: 10px;" placeholder="Search by name or ID">
+                    <button class="form-button">Search</button>
+                    <button class="form-button" style="margin-left: 10px;" onclick="addMember()">Add Member</button>
+                </div>
+                <table class="results-table" id="searchResultsMembers">
+                    <thead>
+                        <tr>
+                            <th>Member ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResultsMembersBody">
+                    </tbody>
+                </table>
+
+                <!-- Place the Issue Book button below the tables -->
+                <div class="issue-book-button-container">
+                    <button class="form-button" onclick="issueBook()">Issue Book</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function loadListIssuedBooks(mainContent) {
+        var issuedBooks = books.filter(book => book.quantity < 1); // Filter books with quantity less than 1 (issued books)
+
+        mainContent.innerHTML = `
+            <div class="container">
+                <h2>List Issued Books</h2>
+                <table class="results-table" id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Book ISBN</th>
+                            <th>Book Title</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Author</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${generateBooksTable(issuedBooks)}
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    function loadBooksToBeReturnedToday(mainContent) {
+        mainContent.innerHTML = `
+            <div class="container">
+                <h2>Books to be Returned Today</h2>
+                <div class="search-container" style="margin-bottom: 20px;">
+                    <label for="usnInput" style="display: inline-block; width: 100px;">USN:</label>
+                    <input type="text" id="usnInput" class="form-input" style="width: 200px; margin-right: 10px;" placeholder="Enter USN">
+                    <button class="form-button" onclick="searchBooksToBeReturnedToday()">Search</button>
+                </div>
+                <table class="results-table" id="returnBooksTodayTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>USN</th>
+                            <th>Member ID</th>
+                            <th>Issue Date</th>
+                            <th>Return Date</th>
+                            <th>ISBN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample data, should be dynamically generated -->
+                        <tr>
+                            <td>1</td>
+                            <td>USN123</td>
+                            <td>Member1</td>
+                            <td>2024-06-01</td>
+                            <td>2024-06-24</td>
+                            <td>123456</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>USN456</td>
+                            <td>Member2</td>
+                            <td>2024-06-05</td>
+                            <td>2024-06-24</td>
+                            <td>789012</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
+function loadManageUsers(mainContent) {
+    mainContent.innerHTML = `
+        <div class="container">
+            <h2>Manage Users</h2>
+            <div class="input-group">
+                <input type="text" id="searchUsersInput" class="form-input" placeholder="Search by name or email">
+                <button class="form-button" onclick="searchUsers()">Search</button>
+                <button class="form-button add-user-button" onclick="addUserForm()">Add User</button>
+            </div>
+            <table class="results-table" id="usersTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${generateUsersTable(users)}
+                </tbody>
+            </table>
+        </div>
+    `;
+}
+
+    function generateUsersTable(users) {
+        return users.map(user => `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.phone}</td>
+                <td>${user.role}</td>
+                <td>
+                    <button onclick="editUser('${user.id}')">Edit</button>
+                    <button onclick="deleteUser('${user.id}')">Delete</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function addUserForm() {
+        var mainContent = document.getElementById("main-content");
+        mainContent.innerHTML = `
+            <div class="container">
+                <h2>Add User</h2>
+                <form id="addUserForm">
+                    <label class="form-label" for="userName">Name:</label>
+                    <input type="text" id="userName" name="userName" class="form-input" required><br>
+
+                    <label class="form-label" for="userEmail">Email:</label>
+                    <input type="email" id="userEmail" name="userEmail" class="form-input" required><br>
+
+                    <label class="form-label" for="userPhone">Phone:</label>
+                    <input type="text" id="userPhone" name="userPhone" class="form-input" required><br>
+
+                    <label class="form-label" for="userRole">Role:</label>
+                    <select id="userRole" name="userRole" class="form-select" required>
+                        <option value="" disabled selected>Select role</option>
+                        <option value="Member">Member</option>
+                        <option value="Librarian">Librarian</option>
+                    </select><br>
+
+                    <button type="submit" class="form-button">Add User</button>
+                </form>
+            </div>
+        `;
+
+        document.getElementById("addUserForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var userName = document.getElementById("userName").value;
+            var userEmail = document.getElementById("userEmail").value;
+            var userPhone = document.getElementById("userPhone").value;
+            var userRole = document.getElementById("userRole").value;
+
+            // Simulated: Add user to a list or database
+            var newUser = { id: (users.length + 1).toString(), name: userName, email: userEmail, phone: userPhone, role: userRole };
+            users.push(newUser);
+            console.log("New User:", newUser);
+
+            mainContent.innerHTML = "<h2>User Added Successfully</h2>";
+        });
+    }
+
+    function searchUsers() {
+        var keyword = document.getElementById("searchUsersInput").value.trim().toLowerCase();
+        var usersTable = document.getElementById("usersTable").getElementsByTagName('tbody')[0];
+
+        usersTable.innerHTML = "";
+        var results = users.filter(user =>
+            user.name.toLowerCase().includes(keyword) || user.email.toLowerCase().includes(keyword)
+        );
+        results.forEach(function(user) {
+            var row = usersTable.insertRow();
+            row.insertCell(0).innerText = user.id;
+            row.insertCell(1).innerText = user.name;
+            row.insertCell(2).innerText = user.email;
+            row.insertCell(3).innerText = user.phone;
+            row.insertCell(4).innerText = user.role;
+            row.insertCell(5).innerHTML = `
+                <button onclick="editUser('${user.id}')">Edit</button>
+                <button onclick="deleteUser('${user.id}')">Delete</button>
+            `;
+        });
+    }
+
+    function editUser(userId) {
+        var user = users.find(u => u.id === userId);
+        if (!user) {
+            console.log("User not found");
+            return;
+        }
+
+        var mainContent = document.getElementById("main-content");
+        mainContent.innerHTML = `
+            <div class="container">
+                <h2>Edit User</h2>
+                <form id="editUserForm">
+                    <input type="hidden" id="editUserId" value="${user.id}">
+                    <label class="form-label" for="editUserName">Name:</label>
+                    <input type="text" id="editUserName" name="editUserName" class="form-input" value="${user.name}" required><br>
+
+                    <label class="form-label" for="editUserEmail">Email:</label>
+                    <input type="email" id="editUserEmail" name="editUserEmail" class="form-input" value="${user.email}" required><br>
+
+                    <label class="form-label" for="editUserPhone">Phone:</label>
+                    <input type="text" id="editUserPhone" name="editUserPhone" class="form-input" value="${user.phone}" required><br>
+
+                    <label class="form-label" for="editUserRole">Role:</label>
+                    <select id="editUserRole" name="editUserRole" class="form-select" required>
+                        <option value="Member" ${user.role === "Member" ? "selected" : ""}>Member</option>
+                        <option value="Librarian" ${user.role === "Librarian" ? "selected" : ""}>Librarian</option>
+                    </select><br>
+
+                    <button type="submit" class="form-button">Save Changes</button>
+                </form>
+            </div>
+        `;
+
+        document.getElementById("editUserForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            user.name = document.getElementById("editUserName").value;
+            user.email = document.getElementById("editUserEmail").value;
+            user.phone = document.getElementById("editUserPhone").value;
+            user.role = document.getElementById("editUserRole").value;
+
+            console.log("Updated User:", user);
+
+            mainContent.innerHTML = "<h2>User Updated Successfully</h2>";
+        });
+    }
+
+    function deleteUser(userId) {
+        var userIndex = users.findIndex(u => u.id === userId);
+        if (userIndex === -1) {
+            console.log("User not found");
+            return;
+        }
+
+        users.splice(userIndex, 1);
+        console.log("Deleted User ID:", userId);
+
+        loadManageUsers(document.getElementById("main-content"));
+    }
+</script>
+
+</body>
+</html>

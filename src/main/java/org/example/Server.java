@@ -16,7 +16,6 @@ import org.eclipse.jetty.server.session.SessionHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.IContext;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import library.model.Book;
@@ -32,7 +31,6 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.UUID;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
