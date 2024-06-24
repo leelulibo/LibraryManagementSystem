@@ -10,7 +10,7 @@ body {
     top: 20px;
     left: 20px;
     bottom: 20px; /* Adjust bottom to leave 20px space */
-    background-color:  #00008B;
+    background: rgba(113, 99, 186, 255);
     overflow-y: auto;
     padding: 20px;
     border-radius: 10px;
@@ -37,7 +37,7 @@ body {
 }
 
 .sidenav .sidebar-header .library-name {
-    color: #fff;
+    color: black;
     font-size: 18px;
 }
 
@@ -45,12 +45,12 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: black;
     display: block;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: white;
 }
 
 .container {

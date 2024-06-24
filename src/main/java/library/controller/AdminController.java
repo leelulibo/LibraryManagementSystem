@@ -18,6 +18,6 @@ public class AdminController {
         Map<String, Object> viewModel = Map.of(
                 "users", users
         );
-        context.render("admin_portal.html", viewModel);
+        context.render("adminPortal.html", viewModel);
     };
 }

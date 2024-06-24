@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="Admin Portal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/library/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/library/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Adminlogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Adminlogin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719215167659</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Admin Portal">
+      <option name="closed" value="true" />
+      <created>1719215533883</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719215533883</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
