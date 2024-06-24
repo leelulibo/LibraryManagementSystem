@@ -10,20 +10,18 @@
 
 <div class="sidenav" id="sidenav">
     <div class="sidebar-header">
-        <img src="logo.png" alt="Library.png" class="logo">
+        <img src="Library.png" alt="Library.png" class="logo" style="width: 100px; height: auto;">
         <span class="library-name">System Library</span>
     </div>
+    <a href="#" onclick="openPage('manageUsers')">Manage Users</a>
     <a href="#" onclick="openPage('addBook')">Add a book</a>
     <a href="#" onclick="openPage('listBooks')">List of Books</a>
     <a href="#" onclick="openPage('issueBook')">Issue Book</a>
     <a href="#" onclick="openPage('listIssuedBooks')">List Issued Books</a>
     <a href="#" onclick="openPage('returnBooksToday')">Books to be Returned Today</a>
-    <a href="#" onclick="openPage('manageUsers')">Manage Users</a>
 </div>
 
 <div class="main-content" id="main-content">
-    <h2>Welcome to our Library Management System</h2>
-    <p>Select an option from the sidebar to view more information.</p>
 </div>
 
 <div id="search-results"></div>
@@ -35,15 +33,12 @@
         // Add more books as needed
     ];
 
-    var users = [
-        { id: "1", name: "John Doe", email: "john@example.com", phone: "123-456-7890", role: "Member" },
-        { id: "2", name: "Jane Smith", email: "jane@example.com", phone: "098-765-4321", role: "Librarian" }
-        // Add more users as needed
-    ];
-
     function openPage(pageName) {
         var mainContent = document.getElementById("main-content");
         switch (pageName) {
+            case 'manageUsers':
+            loadManageUsers(mainContent);
+            break;
             case 'addBook':
                 loadAddBookForm(mainContent);
                 break;
@@ -59,20 +54,76 @@
             case 'returnBooksToday':
                 loadBooksToBeReturnedToday(mainContent);
                 break;
-            case 'manageUsers':
-                loadManageUsers(mainContent);
-                break;
-            default:
-                mainContent.innerHTML = "<h2>Welcome to our Library Management System</h2><p>Select an option from the sidebar to view more information.</p>";
-                break;
+
         }
     }
+    function loadManageUsers(mainContent) {
+    // Example data for demonstration
+    var users = [
+        { id: 1, name: "John Doe", email: "john.doe@example.com", phone: "123-456-7890" },
+        { id: 2, name: "Jane Smith", email: "jane.smith@example.com", phone: "987-654-3210" }
+        // Add more users as needed
+    ];
+
+    mainContent.innerHTML = `
+        <div class="container">
+            <h2>Manage Users</h2>
+            <button class="form-button" onclick="addNewUser()">Add New User</button>
+            <table class="results-table" id="usersTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${generateUsersTable(users)}
+                </tbody>
+            </table>
+        </div>
+    `;
+}
+
+function generateUsersTable(users) {
+    return users.map(user => `
+        <tr>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.phone}</td>
+            <td>
+                <button class="small-button" onclick="editUser(${user.id})">Edit</button>
+                <button class="small-button" onclick="deleteUser(${user.id})">Delete</button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function addNewUser() {
+    // Implement logic to add a new user
+    alert("Functionality to add new user.");
+}
+
+function editUser(userId) {
+    // Implement logic to edit a user
+    alert("Functionality to edit user with ID: " + userId);
+}
+
+function deleteUser(userId) {
+    // Implement logic to delete a user
+    alert("Functionality to delete user with ID: " + userId);
+}
+
 
     function loadAddBookForm(mainContent) {
         var categories = ["Fiction", "Non-fiction", "Science Fiction", "Fantasy", "Mystery", "Romance"];
         var categoryOptions = categories.map(function(category) {
             return `<option value="${category}">${category}</option>`;
         }).join('');
+
 
         mainContent.innerHTML = `
             <div class="container">
@@ -282,175 +333,59 @@
         `;
     }
 
-function loadManageUsers(mainContent) {
-    mainContent.innerHTML = `
-        <div class="container">
-            <h2>Manage Users</h2>
-            <div class="input-group">
-                <input type="text" id="searchUsersInput" class="form-input" placeholder="Search by name or email">
-                <button class="form-button" onclick="searchUsers()">Search</button>
-                <button class="form-button add-user-button" onclick="addUserForm()">Add User</button>
-            </div>
-            <table class="results-table" id="usersTable">
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Role</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${generateUsersTable(users)}
-                </tbody>
-            </table>
-        </div>
-    `;
-}
+    function searchBooks() {
+        var keyword = document.getElementById("searchBooksInput").value.trim().toLowerCase();
+        var resultsTable = document.getElementById("resultsTable").getElementsByTagName('tbody')[0];
 
-    function generateUsersTable(users) {
-        return users.map(user => `
+        resultsTable.innerHTML = "";
+        var results = books.filter(book =>
+            book.title.toLowerCase().includes(keyword) || book.author.toLowerCase().includes(keyword)
+        );
+        results.forEach(function(book) {
+            var row = resultsTable.insertRow();
+            row.insertCell(0).innerText = book.isbn;
+            row.insertCell(1).innerText = book.title;
+            row.insertCell(2).innerText = book.category;
+            row.insertCell(3).innerText = book.quantity;
+            row.insertCell(4).innerText = book.author;
+        });
+    }
+
+    function generateBooksTable(books) {
+        return books.map(book => `
             <tr>
-                <td>${user.id}</td>
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td>${user.phone}</td>
-                <td>${user.role}</td>
-                <td>
-                    <button onclick="editUser('${user.id}')">Edit</button>
-                    <button onclick="deleteUser('${user.id}')">Delete</button>
-                </td>
+                <td>${book.isbn}</td>
+                <td>${book.title}</td>
+                <td>${book.category}</td>
+                <td>${book.quantity}</td>
+                <td>${book.author}</td>
             </tr>
         `).join('');
     }
 
-    function addUserForm() {
-        var mainContent = document.getElementById("main-content");
-        mainContent.innerHTML = `
-            <div class="container">
-                <h2>Add User</h2>
-                <form id="addUserForm">
-                    <label class="form-label" for="userName">Name:</label>
-                    <input type="text" id="userName" name="userName" class="form-input" required><br>
+    function searchBooksToBeReturnedToday() {
+        var usn = document.getElementById("usnInput").value.trim().toLowerCase();
+        var returnBooksTodayTable = document.getElementById("returnBooksTodayTable").getElementsByTagName("tbody")[0];
 
-                    <label class="form-label" for="userEmail">Email:</label>
-                    <input type="email" id="userEmail" name="userEmail" class="form-input" required><br>
+        // Sample data for books to be returned today
+        var booksToBeReturnedToday = [
+            { id: 1, usn: "USN123", memberId: "Member1", issueDate: "2024-06-01", returnDate: "2024-06-24", isbn: "123456" },
+            { id: 2, usn: "USN456", memberId: "Member2", issueDate: "2024-06-05", returnDate: "2024-06-24", isbn: "789012" }
+        ];
 
-                    <label class="form-label" for="userPhone">Phone:</label>
-                    <input type="text" id="userPhone" name="userPhone" class="form-input" required><br>
-
-                    <label class="form-label" for="userRole">Role:</label>
-                    <select id="userRole" name="userRole" class="form-select" required>
-                        <option value="" disabled selected>Select role</option>
-                        <option value="Member">Member</option>
-                        <option value="Librarian">Librarian</option>
-                    </select><br>
-
-                    <button type="submit" class="form-button">Add User</button>
-                </form>
-            </div>
-        `;
-
-        document.getElementById("addUserForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            var userName = document.getElementById("userName").value;
-            var userEmail = document.getElementById("userEmail").value;
-            var userPhone = document.getElementById("userPhone").value;
-            var userRole = document.getElementById("userRole").value;
-
-            // Simulated: Add user to a list or database
-            var newUser = { id: (users.length + 1).toString(), name: userName, email: userEmail, phone: userPhone, role: userRole };
-            users.push(newUser);
-            console.log("New User:", newUser);
-
-            mainContent.innerHTML = "<h2>User Added Successfully</h2>";
-        });
+        var filteredBooks = booksToBeReturnedToday.filter(book => book.usn.toLowerCase().includes(usn));
+        returnBooksTodayTable.innerHTML = filteredBooks.map(book => `
+            <tr>
+                <td>${book.id}</td>
+                <td>${book.usn}</td>
+                <td>${book.memberId}</td>
+                <td>${book.issueDate}</td>
+                <td>${book.returnDate}</td>
+                <td>${book.isbn}</td>
+            </tr>
+        `).join('');
     }
 
-    function searchUsers() {
-        var keyword = document.getElementById("searchUsersInput").value.trim().toLowerCase();
-        var usersTable = document.getElementById("usersTable").getElementsByTagName('tbody')[0];
-
-        usersTable.innerHTML = "";
-        var results = users.filter(user =>
-            user.name.toLowerCase().includes(keyword) || user.email.toLowerCase().includes(keyword)
-        );
-        results.forEach(function(user) {
-            var row = usersTable.insertRow();
-            row.insertCell(0).innerText = user.id;
-            row.insertCell(1).innerText = user.name;
-            row.insertCell(2).innerText = user.email;
-            row.insertCell(3).innerText = user.phone;
-            row.insertCell(4).innerText = user.role;
-            row.insertCell(5).innerHTML = `
-                <button onclick="editUser('${user.id}')">Edit</button>
-                <button onclick="deleteUser('${user.id}')">Delete</button>
-            `;
-        });
-    }
-
-    function editUser(userId) {
-        var user = users.find(u => u.id === userId);
-        if (!user) {
-            console.log("User not found");
-            return;
-        }
-
-        var mainContent = document.getElementById("main-content");
-        mainContent.innerHTML = `
-            <div class="container">
-                <h2>Edit User</h2>
-                <form id="editUserForm">
-                    <input type="hidden" id="editUserId" value="${user.id}">
-                    <label class="form-label" for="editUserName">Name:</label>
-                    <input type="text" id="editUserName" name="editUserName" class="form-input" value="${user.name}" required><br>
-
-                    <label class="form-label" for="editUserEmail">Email:</label>
-                    <input type="email" id="editUserEmail" name="editUserEmail" class="form-input" value="${user.email}" required><br>
-
-                    <label class="form-label" for="editUserPhone">Phone:</label>
-                    <input type="text" id="editUserPhone" name="editUserPhone" class="form-input" value="${user.phone}" required><br>
-
-                    <label class="form-label" for="editUserRole">Role:</label>
-                    <select id="editUserRole" name="editUserRole" class="form-select" required>
-                        <option value="Member" ${user.role === "Member" ? "selected" : ""}>Member</option>
-                        <option value="Librarian" ${user.role === "Librarian" ? "selected" : ""}>Librarian</option>
-                    </select><br>
-
-                    <button type="submit" class="form-button">Save Changes</button>
-                </form>
-            </div>
-        `;
-
-        document.getElementById("editUserForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            user.name = document.getElementById("editUserName").value;
-            user.email = document.getElementById("editUserEmail").value;
-            user.phone = document.getElementById("editUserPhone").value;
-            user.role = document.getElementById("editUserRole").value;
-
-            console.log("Updated User:", user);
-
-            mainContent.innerHTML = "<h2>User Updated Successfully</h2>";
-        });
-    }
-
-    function deleteUser(userId) {
-        var userIndex = users.findIndex(u => u.id === userId);
-        if (userIndex === -1) {
-            console.log("User not found");
-            return;
-        }
-
-        users.splice(userIndex, 1);
-        console.log("Deleted User ID:", userId);
-
-        loadManageUsers(document.getElementById("main-content"));
-    }
 </script>
 
 </body>

@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.css" afterDir="false" />
+    <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="Admin Portal">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Library.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library/config/controller/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library/config/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library/model/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,13 +45,16 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2i0wtPq1pdjLfZHA82YxQHLiZpe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.Server.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -117,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718869931184</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Admin Portal">
+      <option name="closed" value="true" />
+      <created>1719212979222</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719212979222</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -126,9 +132,11 @@
     <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="footer" />
     <MESSAGE value="merging from lulibo" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Admin Portal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Portal" />
   </component>
 </project>
