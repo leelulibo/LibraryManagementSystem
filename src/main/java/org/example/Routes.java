@@ -3,10 +3,7 @@ package org.example;
 import io.javalin.apibuilder.ApiBuilder;
 import library.controller.AdminController;
 import library.controller.BooksController;
-import library.controller.BorrowRecordController;
 import library.controller.UserController;
-
-import static library.controller.BorrowRecordController.viewRecords;
 
 public class Routes {
     public static final String LOGIN_ACTION = "/login-action";

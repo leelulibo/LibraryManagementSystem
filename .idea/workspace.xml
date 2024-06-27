@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="updated">
+    <list default="true" id="e48b52b2-f919-4874-8143-40b0455135df" name="Changes" comment="Admin Portal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/library/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/library/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Adminlogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Adminlogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminPortal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,15 +20,27 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Interface" />
         <option value="HTML File" />
-        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LeletuJozana&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/leelulibo/LibraryManagementSystem.git&quot;,
+    &quot;accountId&quot;: &quot;7974344f-3cdd-415c-9757-52c9faf6853d&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -31,22 +48,25 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2i0wtPq1pdjLfZHA82YxQHLiZpe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Application.Server.executor&quot;: &quot;Run&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JUnit.BookTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Ayanda&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#6 on lheza&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayanda.Mdudu/Desktop/LibraryManagementSystem/src/main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/CAPACITI/LibraryManagementSystem/Library/src/main/resources/templates&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -55,15 +75,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ayanda.Mdudu\Desktop\LibraryManagementSystem\src\main" />
       <recent name="C:\Users\CAPACITI\LibraryManagementSystem\Library\src\main\resources\templates" />
       <recent name="C:\Users\CAPACITI\Documents\Library-updated[1]\Library\src\main\resources\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ayanda.Mdudu\Desktop\LibraryManagementSystem\src" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.yourpackage.servlets" />
     </key>
   </component>
   <component name="RunManager">
@@ -105,63 +118,31 @@
       <option name="project" value="LOCAL" />
       <updated>1718869931184</updated>
     </task>
-    <task id="LOCAL-00002" summary="updated">
+    <task id="LOCAL-00002" summary="Admin Portal">
       <option name="closed" value="true" />
-      <created>1718871832786</created>
+      <created>1719212979222</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1718871832786</updated>
+      <updated>1719212979222</updated>
     </task>
-    <task id="LOCAL-00003" summary="updated">
+    <task id="LOCAL-00003" summary="Admin Portal">
       <option name="closed" value="true" />
-      <created>1718877386766</created>
+      <created>1719215167659</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1718877386767</updated>
+      <updated>1719215167659</updated>
     </task>
-    <task id="LOCAL-00004" summary="updated">
+    <task id="LOCAL-00004" summary="Admin Portal">
       <option name="closed" value="true" />
-      <created>1718881828366</created>
+      <created>1719215533883</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1718881828366</updated>
+      <updated>1719215533883</updated>
     </task>
-    <task id="LOCAL-00005" summary="updated">
-      <option name="closed" value="true" />
-      <created>1718891579720</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1718891579720</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updated">
-      <option name="closed" value="true" />
-      <created>1718954976649</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1718954976649</updated>
-    </task>
-    <task id="LOCAL-00007" summary="updated">
-      <option name="closed" value="true" />
-      <created>1718955343095</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1718955343095</updated>
-    </task>
-    <task id="LOCAL-00008" summary="updated">
-      <option name="closed" value="true" />
-      <created>1718956117854</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1718956117854</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -170,9 +151,11 @@
     <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="footer" />
     <MESSAGE value="merging from lulibo" />
-    <MESSAGE value="updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated" />
+    <MESSAGE value="." />
+    <MESSAGE value="Admin Portal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Portal" />
   </component>
 </project>
